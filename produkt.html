@@ -215,33 +215,37 @@ body.show-before #before{display:block}
    Cztery kroki widoczne naraz, bieżący wyróżniony. Klient
    od razu lokalizuje się w procesie i widzi, czego brakuje.
    ══════════════════════════════════════════════════════════ */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative;margin-bottom:18px}
-.steps::before{content:"";position:absolute;top:38px;left:12%;right:12%;height:2px;
-  background:var(--line);z-index:0}
-.stp{position:relative;z-index:1}
-.stp > a,.stp > .s-inner{display:flex;flex-direction:column;align-items:center;text-align:center;
-  gap:5px;padding:10px 8px 14px;border-radius:var(--r);text-decoration:none;color:inherit;
-  background:var(--paper);box-shadow:var(--lift-1);height:100%;
-  transition:transform .2s ease,box-shadow .2s ease}
-.stp > a:hover{transform:translateY(-3px);box-shadow:var(--lift-2)}
-.s-thumb{width:76px;height:76px;flex:none;border-radius:50%;overflow:hidden;background:var(--surface);
-  border:2px solid var(--paper);box-shadow:0 0 0 2px var(--line)}
-.s-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.s-no{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
-.s-what{font-size:13px;font-weight:600}
-.s-name{font-size:13px;line-height:1.35;color:var(--ink-soft)}
-.s-price{font-size:14px;font-weight:600;margin-top:auto;padding-top:4px}
-.stp.now > .s-inner{background:var(--sand);box-shadow:0 0 0 2px var(--rose)}
-.stp.now .s-thumb{box-shadow:0 0 0 2px var(--rose)}
-.stp.now .s-what{color:var(--rose)}
+/* stepper rutyny — własna nazwa klasy, żeby nie kolidować z listą "trzy kroki" */
+.routine{list-style:none;margin:0 0 18px;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
+.routine li{display:flex}
+.rt > a,.rt > .s-inner{display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:6px;width:100%;padding:18px 14px 16px;border-radius:var(--r);
+  text-decoration:none;color:inherit;background:var(--paper);
+  border:1.5px solid transparent;box-shadow:var(--lift-1);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.rt > a:hover{transform:translateY(-3px);box-shadow:var(--lift-2);border-color:var(--line)}
+.s-thumb{width:88px;height:88px;flex:none;border-radius:50%;overflow:hidden;
+  background:var(--surface);display:flex;align-items:center;justify-content:center}
+.s-thumb img{width:100%;height:100%;object-fit:contain;display:block;padding:6px}
+.s-no{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-soft);margin-top:6px}
+.s-what{font-size:14.5px;font-weight:600;line-height:1.25}
+.s-name{font-size:13px;line-height:1.4;color:var(--ink-soft);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.s-price{font-size:15px;font-weight:600;margin-top:auto;padding-top:10px}
+.rt.now > .s-inner{background:var(--sand);border-color:var(--rose)}
+.rt.now .s-what{color:var(--rose)}
+.rt.now .s-thumb{background:#fff}
 
-.bundle{display:flex;align-items:center;gap:16px;flex-wrap:wrap;
-  padding:16px 20px;background:var(--paper);border-radius:var(--r);box-shadow:var(--lift-1)}
-.b-txt{display:flex;flex-direction:column;gap:2px;flex:1 1 auto;min-width:0}
-.b-txt b{font-size:16px}
+.bundle{display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  padding:18px 22px;background:var(--paper);border-radius:var(--r);box-shadow:var(--lift-1)}
+.b-txt{display:flex;flex-direction:column;gap:3px;flex:1 1 220px;min-width:0}
+.b-txt b{font-size:16.5px}
 .b-txt span{font-size:14px;color:var(--ink-soft)}
-.b-add{flex:none;min-height:50px;padding:0 26px;border:0;border-radius:999px;cursor:pointer;
-  background:var(--ink);color:var(--paper);font-size:15px;font-weight:600}
+.b-add{flex:none;min-height:50px;padding:0 28px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--ink);color:var(--paper);font-size:15px;font-weight:600;
+  transition:background .2s ease}
 .b-add:hover{background:var(--rose)}
 
 /* ══════════════════════════════════════════════════════════
@@ -291,6 +295,17 @@ body.show-before #before{display:block}
   color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer;
   background:none;border:0;padding:8px 0;min-height:44px}
 .rev-all:hover{color:var(--rose)}
+
+/* ── zabezpieczenia układu ──────────────────────────────────
+   Elementy siatki i flexa domyślnie nie kurczą się poniżej
+   swojej zawartości — stąd ucinanie tekstu i poziomy scroll
+   przy zmianie zoomu. min-width:0 to wyłącza.
+   ─────────────────────────────────────────────────────────── */
+.grid-safe,.two > div,.routine li,.rt > a,.rt > .s-inner,
+.acts,.act,.bundle,.b-txt,.rev,.rev-rail{min-width:0}
+img{max-width:100%;height:auto}
+h1,h2,h3,p,li,span,a{overflow-wrap:break-word}
+.wrap{width:100%}
 
 /* ── GŁĘBIA ──────────────────────────────────────────────────
    Cień dostaje tylko to, co dałoby się podnieść: karty, panele,
@@ -380,17 +395,18 @@ body.show-before #before{display:block}
   .act .a-role{font-size:13px}
   .act p{font-size:14.5px;padding:6px 15px 14px}
 
-  /* rutyna: cztery kroki nadal w jednym rzędzie, tylko ciaśniej */
-  .steps{grid-template-columns:repeat(4,1fr);gap:6px;margin:0 -4px 16px}
-  .steps::before{top:30px;left:14%;right:14%}
-  .stp > a,.stp > .s-inner{padding:8px 4px 11px;gap:3px;border-radius:12px}
-  .s-thumb{width:54px;height:54px}
-  .s-no{font-size:10px;letter-spacing:.06em;margin-top:2px}
-  .s-what{font-size:11.5px}
-  .s-name{display:none}                     /* nazwa niepotrzebna przy miniaturze */
-  .s-price{font-size:12.5px;padding-top:2px}
-  .bundle{padding:14px 16px;gap:12px}
-  .b-txt b{font-size:15px}
+  /* rutyna: siatka 2×2 — wszystkie cztery kroki widoczne naraz,
+     a tekst ma realną szerokość i nie jest ucinany */
+  .routine{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .rt > a,.rt > .s-inner{padding:14px 10px 13px;gap:4px;border-radius:14px}
+  .s-thumb{width:68px;height:68px}
+  .s-no{font-size:10.5px;letter-spacing:.08em;margin-top:4px}
+  .s-what{font-size:13.5px}
+  .s-name{font-size:12.5px;-webkit-line-clamp:2}
+  .s-price{font-size:14px;padding-top:8px}
+  .bundle{padding:15px 16px;gap:12px}
+  .b-txt{flex:1 1 100%}
+  .b-txt b{font-size:15.5px}
   .b-txt span{font-size:13.5px}
   .b-add{flex:1 1 100%;padding:0 18px}
 
@@ -417,6 +433,14 @@ body.show-before #before{display:block}
 
 @media (max-width:380px){
   .wrap{padding:0 14px}
+  /* na wąskich ekranach rola składnika schodzi do drugiej linii,
+     zamiast być ucinana wielokropkiem */
+  .act summary{flex-wrap:wrap;row-gap:2px}
+  .act .a-name{flex:1 1 100%}
+  .act .a-role{flex:1 1 auto;white-space:normal;text-overflow:clip}
+  .routine{gap:8px}
+  .s-thumb{width:60px;height:60px}
+  .s-name{font-size:12px}
   .buy h1{font-size:24px}
   .price{font-size:27px}
   .sticky-buy .p{font-size:17px}
@@ -631,8 +655,8 @@ body.show-before #before{display:block}
       <h2>gdzie jesteś w pielęgnacji</h2>
       <p class="intro">Ten krem to krok trzeci. Zobacz, czego jeszcze potrzebuje cera trądzikowa.</p>
 
-      <ol class="steps">
-        <li class="stp">
+      <ol class="routine">
+        <li class="rt">
           <a href="https://nacomi-shop.pl/pl/p/Ethic-Care-Skin-Balance-Zel-do-mycia-twarzy-100ml/1325">
             <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_1776_2000_2000/Ethic-Care-Skin-Balance-zel-do-mycia-twarzy-100ml_2.webp" alt="Żel do mycia twarzy Skin Balance"></span>
             <span class="s-no">Krok 1</span>
@@ -641,7 +665,7 @@ body.show-before #before{display:block}
             <span class="s-price">30,00 zł</span>
           </a>
         </li>
-        <li class="stp">
+        <li class="rt">
           <a href="https://nacomi-shop.pl/pl/p/Tonik-mleczny-do-twarzy-nawilzajacy-100ml/1046">
             <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2193_2000_2000/Tonik-mleczny-do-twarzy-nawilzajacy-100ml.webp" alt="Tonik mleczny nawilżający"></span>
             <span class="s-no">Krok 2</span>
@@ -650,7 +674,7 @@ body.show-before #before{display:block}
             <span class="s-price">30,00 zł</span>
           </a>
         </li>
-        <li class="stp now" aria-current="step">
+        <li class="rt now" aria-current="step">
           <span class="s-inner">
             <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp" alt="Lekki krem do cery trądzikowej"></span>
             <span class="s-no">Krok 3</span>
@@ -659,7 +683,7 @@ body.show-before #before{display:block}
             <span class="s-price">42,00 zł</span>
           </span>
         </li>
-        <li class="stp">
+        <li class="rt">
           <a href="https://nacomi-shop.pl/pl/p/Nacomi-Next-Lvl-Dermo-Punktowy-krem-przeciwdzialajacy-niedoskonalosciom-30-ml/1089">
             <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2157_2000_2000/Punktowy-krem-przeciwdzialajacy-niedoskonaloscia-30ml-5902539717570.webp" alt="Punktowy krem na niedoskonałości"></span>
             <span class="s-no">Krok 4</span>
