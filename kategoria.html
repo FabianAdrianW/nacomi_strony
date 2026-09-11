@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kremy do twarzy — Nacomi | Naturalne kremy nawilżające, na trądzik i z SPF</title>
+<meta name="description" content="Kremy do twarzy Nacomi: nawilżające, przeciwzmarszczkowe, na cerę trądzikową i atopową oraz z filtrem SPF 30 i 50. Filtruj po problemie skóry i cenie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2A1F24; --ink-soft:#6B5560; --base:#F4EAED;   /* poziom 0 — dno strony */
+  --paper:#FBF5F6;  /* poziom 1 — powierzchnie uniesione */ --surface:#F4E2E8; --line:#E7D3DA;
+  --rose:#9A4560; --clay:#5B4550; --sage:#38796B; --alert:#B0522A;
+  --f-disp:'Hanken Grotesk',system-ui,sans-serif; --f-body:'Hanken Grotesk',system-ui,sans-serif;
+  --r:6px; --wrap:1180px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f-body);background:var(--base);color:var(--ink);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,select{font:inherit}
+:focus-visible{outline:3px solid var(--sage);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:24px;top:12px;z-index:99;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+.util{background:var(--ink);color:var(--paper);font-size:13.5px}
+.util .wrap{display:flex;justify-content:center;gap:28px;padding:9px 24px;flex-wrap:wrap}
+.util b{font-weight:600}
+
+.hdr{
+  position:sticky;top:0;z-index:40;background:var(--paper);
+  box-shadow:0 1px 0 rgba(255,255,255,.85), 0 6px 18px -6px rgba(154,69,96,.20);
+}
+.hdr .wrap{display:flex;align-items:center;gap:20px;min-height:72px}
+.brand{font-family:var(--f-disp);font-weight:500;font-size:26px;letter-spacing:-.02em;flex:none}
+.brand span{color:var(--rose)}
+.search{flex:1;max-width:400px}
+.search input{width:100%;font-size:15px;padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
+.hdr-acts{margin-left:auto;display:flex;align-items:center;gap:6px;flex:none}
+.hdr-acts a{padding:9px 14px;border-radius:999px;font-size:14.5px;font-weight:500;transition:background .2s,color .2s}
+.hdr-acts a:hover{background:var(--surface)}
+.hdr-acts .cart{background:var(--ink);color:var(--paper)}
+.hdr-acts .cart:hover{background:var(--rose)}
+.switch{margin-left:14px;flex:none}
+.switch-track{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.switch-track button{font:inherit;font-size:13px;font-weight:600;cursor:pointer;border:0;background:transparent;color:var(--ink-soft);padding:6px 15px;border-radius:999px;transition:background .2s,color .2s}
+.switch-track button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+.nav{
+  position:relative;z-index:30;background:var(--paper);
+  box-shadow:0 4px 12px -8px rgba(154,69,96,.22);
+}
+.nav ul{list-style:none;display:flex;gap:4px;flex-wrap:wrap;padding:6px 0}
+.nav a{display:block;padding:10px 16px;font-size:15px;font-weight:500;border-radius:999px}
+.nav a:hover{background:var(--surface)}
+.nav a[aria-current]{background:var(--ink);color:var(--paper)}
+
+/* ── nagłówek kategorii ── */
+.crumbs{padding:22px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.crumbs a:hover{color:var(--rose)}
+.crumbs span{margin:0 7px}
+.cat-band{background:var(--surface);margin-bottom:44px}
+.cat-head{padding:6px 0 34px}
+.cat-head h1{font-family:var(--f-disp);font-weight:300;font-size:clamp(30px,4.4vw,46px);letter-spacing:-.035em;line-height:1.05}
+.cat-head p{margin-top:14px;max-width:58ch;color:var(--ink-soft);font-size:16px}
+
+/* ── układ ── */
+.quick{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.quick button{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:9px 18px;font-size:14.5px;font-weight:500;
+  transition:border-color .2s,background .2s;
+}
+.quick button:hover{border-color:var(--rose);background:#FDF8FA}
+.quick button[aria-pressed="true"]{background:var(--rose);color:#fff;border-color:var(--rose)}
+.quick button i{width:11px;height:11px;border-radius:50%;background:#F0A8C6;flex:none;
+  box-shadow:inset -2px -2px 3px rgba(0,0,0,.2), inset 2px 2px 3px rgba(255,255,255,.65)}
+.layout{display:grid;grid-template-columns:236px 1fr;gap:56px;padding-bottom:72px}
+
+/* ── filtry ── */
+.filters{
+  position:sticky;top:96px;align-self:start;
+  border-right:1px solid var(--line);padding-right:32px;margin-right:-24px;
+  max-height:calc(100vh - 128px);overflow-y:auto;
+  scrollbar-gutter:stable;
+  scrollbar-width:thin;scrollbar-color:var(--line) transparent;
+  overscroll-behavior:contain;
+}
+.filters::-webkit-scrollbar{width:6px}
+.filters::-webkit-scrollbar-track{background:transparent}
+.filters::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px}
+.filters::-webkit-scrollbar-thumb:hover{background:var(--ink-soft)}
+.fgroup{border-bottom:1px solid var(--line);padding:16px 0}
+.fgroup:first-child{padding-top:0}
+.fgroup h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:12px}
+.fopt{display:flex;align-items:flex-start;gap:10px;padding:7px 0;cursor:pointer;font-size:15px;line-height:1.35}
+.fopt input{width:17px;height:17px;accent-color:var(--rose);cursor:pointer;flex:none;margin-top:2px}
+.fopt .cnt{font-size:13.5px;color:var(--ink-soft);white-space:nowrap}
+.fopt .cnt::before{content:"("}
+.fopt .cnt::after{content:")"}
+.fopt:hover{color:var(--rose)}
+.fopt.off{opacity:.42}
+.fopt.off:hover{color:inherit}
+.clear{margin-top:16px;width:100%;padding:10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink-soft);font-size:14px;font-weight:600;cursor:pointer}
+.clear:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ── pasek wyników ── */
+.bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.count{font-weight:600;font-size:16px}
+.count em{font-style:normal;color:var(--ink-soft);font-weight:400}
+.sort{margin-left:auto;display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--ink-soft)}
+.sort select{padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:14.5px;cursor:pointer}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:16px 0 0}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:6px 8px 6px 15px;font-size:13.5px;font-weight:500;cursor:pointer}
+.chip b{font-weight:600;font-size:15px;line-height:1;opacity:.7}
+.chip:hover b{opacity:1}
+
+/* ── siatka produktów ── */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.card{background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--ink-soft);transform:translateY(-2px)}
+.card-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;margin-bottom:12px}
+.card-img img{width:100%;height:100%;object-fit:contain}
+.line-tag{align-self:flex-start;font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:3px 9px;border-radius:999px;margin-bottom:9px}
+.line-tag.best{background:var(--rose);color:#fff;border-color:var(--rose)}
+.card h3{font-size:16px;font-weight:500;line-height:1.3;margin-bottom:4px}
+.card .size{font-size:13.5px;color:var(--ink-soft)}
+.card .price{margin-top:auto;font-weight:600;font-size:18px;padding-top:10px}
+.card .add{margin-top:10px;width:100%;padding:10px;border-radius:999px;cursor:pointer;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:14px;font-weight:600;transition:background .2s,color .2s}
+.card .add:hover{background:var(--ink);color:var(--paper)}
+.empty{padding:50px 0;text-align:center;color:var(--ink-soft)}
+.empty b{display:block;font-family:var(--f-disp);font-weight:300;font-size:22px;color:var(--ink);margin-bottom:8px}
+
+/* ── zaufanie ── */
+.trust{background:var(--surface);padding:30px 0}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.trust-item b{display:block;font-size:15.5px;margin-bottom:3px}
+.trust-item span{font-size:14px;color:var(--ink-soft)}
+
+.foot{background:var(--ink);color:var(--paper);padding:40px 0 28px;font-size:14.5px}
+.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.foot h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9C8790;font-weight:600;margin-bottom:13px}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot a:hover{color:#F0C0D0}
+.foot .legal{margin-top:30px;padding-top:18px;border-top:1px solid #40323A;font-size:13px;color:#9C8790}
+
+/* ── widok przed ── */
+#before{display:none}
+body.show-before #after{display:none}
+body.show-before #before{display:block}
+.audit-note{background:var(--ink);color:var(--paper);padding:16px 0;font-size:14px}
+.audit-note strong{color:#F0C0D0}
+.audit{padding:34px 0 64px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:34px}
+.stat{background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.stat b{display:block;font-family:var(--f-disp);font-weight:300;font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--alert)}
+.stat span{font-size:13.5px;color:var(--ink-soft);display:block;margin-top:6px}
+.issues ol{list-style:none;counter-reset:p;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:20px}
+.issues li{counter-increment:p;background:var(--surface);border-left:3px solid var(--alert);border-radius:0 var(--r) var(--r) 0;padding:16px 18px;font-size:15px}
+.issues li::before{content:counter(p,decimal-leading-zero);display:block;font-family:var(--f-disp);font-weight:500;font-size:13px;color:var(--alert);margin-bottom:6px}
+.issues li b{display:block;margin-bottom:4px}
+.issues h2{font-family:var(--f-disp);font-weight:300;font-size:30px;letter-spacing:-.02em}
+.snip{background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-top:26px;font-size:14.5px}
+.snip h3{font-family:var(--f-disp);font-weight:300;font-size:19px;font-weight:600;margin-bottom:12px}
+.snip .row{display:flex;gap:12px;padding:8px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.snip .row:first-of-type{border-top:0}
+.snip .en{color:var(--alert);font-weight:600}
+.snip .pl{color:var(--sage);font-weight:600}
+
+
+/* ── GŁĘBIA ──────────────────────────────────────────────────
+   Cień dostaje tylko to, co dałoby się podnieść: karty, panele,
+   obiekty. Nie sekcje, nie pasma tła. Cień jest różowy, nie szary —
+   szary na różowej stronie czyta się jak brud. Górna krawędź dostaje
+   wąskie rozświetlenie, tak jak połyskliwe obiekty marki.        */
+:root{
+  --lift-1:0 1px 2px rgba(154,69,96,.06), 0 6px 16px -6px rgba(154,69,96,.18), inset 0 1px 0 rgba(255,255,255,.72);
+  --lift-2:0 2px 5px rgba(154,69,96,.09), 0 18px 34px -12px rgba(154,69,96,.28), inset 0 1px 0 rgba(255,255,255,.82);
+}
+.card,.scent-card,.choice,.diag-card,.act{border-color:transparent;box-shadow:var(--lift-1)}
+.card:hover,.scent-card:hover,.choice:hover,.diag-card:hover{box-shadow:var(--lift-2)}
+.card.lead{box-shadow:var(--lift-2)}
+
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr;gap:28px}
+  .cat-head{padding-bottom:28px;margin-bottom:28px}
+  .filters{position:static;border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-right:0;background:var(--surface);max-height:none;overflow:visible}
+  .grid{grid-template-columns:1fr 1fr}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .hdr .wrap{flex-wrap:wrap;min-height:0;padding-top:12px;padding-bottom:12px;gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .util .wrap{gap:14px;font-size:12.5px}
+  .grid{grid-template-columns:1fr}
+  .trust-grid,.foot-grid{grid-template-columns:1fr}
+  .sort{margin-left:0;flex-basis:100%}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Przejdź do treści</a>
+
+<div class="util">
+  <div class="wrap">
+    <span><b>Darmowa dostawa</b> od 99 zł</span>
+    <span>Wysyłka w 2–5 dni roboczych</span>
+    <span>Zwrot do 14 dni</span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#">nacomi<span>.</span></a>
+    <div class="search">
+      <label class="skip" for="q">Szukaj produktów</label>
+      <input id="q" type="search" placeholder="Szukaj: serum, olej, peeling…">
+    </div>
+    <nav class="hdr-acts" aria-label="Konto i koszyk">
+      <a href="#">Ulubione</a>
+      <a href="#">Konto</a>
+      <a class="cart" href="#">Koszyk · 0</a>
+    </nav>
+    <div class="switch">
+      <div class="switch-track" role="group" aria-label="Przełącz widok">
+        <button type="button" id="btn-before" aria-pressed="false">Przed</button>
+        <button type="button" id="btn-after" aria-pressed="true">Po</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ PO ══════════ -->
+<div id="after">
+
+<nav class="nav" aria-label="Kategorie">
+  <div class="wrap">
+    <ul>
+      <li><a href="https://nacomi-shop.pl/pl/c/Twarz/477" aria-current="page">Twarz</a></li>
+      <li><a href="https://nacomi-shop.pl/pl/c/Cialo/487">Ciało</a></li>
+      <li><a href="https://nacomi-shop.pl/pl/c/Wlosy/495">Włosy</a></li>
+      <li><a href="https://nacomi-shop.pl/pl/c/Dzialanie/519">Według działania</a></li>
+      <li><a href="https://nacomi-shop.pl/pl/c/Nowosci/503">Nowości</a></li>
+      <li><a href="https://nacomi-shop.pl/pl/c/Bestsellery/77">Bestsellery</a></li>
+      <li><a href="https://nacomi-shop.pl/pl/c/Zestawy/513">Zestawy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="wrap">
+  </div>
+
+  <div class="cat-band">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Ścieżka">
+      <a href="#">Nacomi</a><span>/</span><a href="https://nacomi-shop.pl/pl/c/Twarz/477">Twarz</a><span>/</span>Kremy do twarzy
+    </nav>
+      <div class="cat-head">
+      <h1>Kremy do twarzy</h1>
+      <p>Kremy nawilżające, przeciwzmarszczkowe, do cery trądzikowej i atopowej oraz z filtrem SPF. Zawęź listę do tego, czego potrzebuje Twoja skóra.</p>
+      <div class="quick" role="group" aria-label="Szybkie skróty">
+        <button type="button" data-quick="tradzik" aria-pressed="false"><i></i>trądzik</button>
+        <button type="button" data-quick="zmarszczki" aria-pressed="false"><i></i>zmarszczki</button>
+        <button type="button" data-quick="suchosc" aria-pressed="false"><i></i>suchość</button>
+        <button type="button" data-quick="wrazliwa" aria-pressed="false"><i></i>cera wrażliwa</button>
+        <button type="button" data-quick="spf" aria-pressed="false"><i></i>z SPF</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="layout">
+
+      <aside class="filters" aria-label="Filtry">
+        <div class="fgroup">
+          <h2>Problem skóry</h2>
+          <label class="fopt"><input type="checkbox" data-f="problem" value="tradzik"><span>Trądzik i niedoskonałości <span class="cnt" data-cnt="problem:tradzik"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="problem" value="zmarszczki"><span>Zmarszczki i jędrność <span class="cnt" data-cnt="problem:zmarszczki"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="problem" value="suchosc"><span>Suchość i odwodnienie <span class="cnt" data-cnt="problem:suchosc"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="problem" value="przebarwienia"><span>Przebarwienia i szara cera <span class="cnt" data-cnt="problem:przebarwienia"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="problem" value="wrazliwa"><span>Cera wrażliwa i atopowa <span class="cnt" data-cnt="problem:wrazliwa"></span></span></label>
+        </div>
+
+        <div class="fgroup">
+          <h2>Ochrona SPF</h2>
+          <label class="fopt"><input type="checkbox" data-f="spf" value="tak"><span>Z filtrem SPF <span class="cnt" data-cnt="spf:tak"></span></span></label>
+        </div>
+
+        <div class="fgroup">
+          <h2>Cena</h2>
+          <label class="fopt"><input type="checkbox" data-f="cena" value="a"><span>do 40 zł <span class="cnt" data-cnt="cena:a"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="cena" value="b"><span>40–48 zł <span class="cnt" data-cnt="cena:b"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="cena" value="c"><span>powyżej 48 zł <span class="cnt" data-cnt="cena:c"></span></span></label>
+        </div>
+
+        <div class="fgroup">
+          <h2>Linia</h2>
+          <label class="fopt"><input type="checkbox" data-f="linia" value="Nacomi"><span>Nacomi <span class="cnt" data-cnt="linia:Nacomi"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="linia" value="Next Lvl"><span>Next Lvl <span class="cnt" data-cnt="linia:Next Lvl"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="linia" value="Next Lvl Dermo"><span>Next Lvl Dermo <span class="cnt" data-cnt="linia:Next Lvl Dermo"></span></span></label>
+          <label class="fopt"><input type="checkbox" data-f="linia" value="Ethic Care"><span>Ethic Care <span class="cnt" data-cnt="linia:Ethic Care"></span></span></label>
+        </div>
+
+        <button class="clear" type="button" id="clear">Wyczyść filtry</button>
+      </aside>
+
+      <section aria-label="Lista produktów">
+        <div class="bar">
+          <span class="count" id="count"></span>
+          <div class="sort">
+            <label for="sort">Sortuj</label>
+            <select id="sort">
+              <option value="default">Polecane</option>
+              <option value="price-asc">Cena rosnąco</option>
+              <option value="price-desc">Cena malejąco</option>
+              <option value="name">Nazwa A–Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="chips" id="chips"></div>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty" hidden><b>brak produktów dla tych filtrów</b>Spróbuj usunąć jeden z warunków.</div>
+      </section>
+
+    </div>
+  </div>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item"><b>Darmowa dostawa od 99 zł</b><span>InPost, Poczta Polska, kurier</span></div>
+        <div class="trust-item"><b>Wysyłka w 2–5 dni roboczych</b><span>Zamówienia realizowane z Wilkowic</span></div>
+        <div class="trust-item"><b>Zwrot do 14 dni</b><span>Bez podawania przyczyny</span></div>
+        <div class="trust-item"><b>Produkcja w Polsce</b><span>Certyfikat ISO 22716 (GMP)</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2>Nacomi</h2>
+        <p style="color:#C4B2BA;max-width:30ch">Polskie kosmetyki naturalne produkowane w Wilkowicach od 2012 roku.</p>
+      </div>
+      <div><h2>Zakupy</h2><ul>
+        <li><a href="https://nacomi-shop.pl/pl/i/Czas-i-koszty-dostawy/4">Dostawa</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Formy-platnosci/10">Płatności</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Zwroty-i-reklamacje/7">Zwroty</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Kontakt/9">Kontakt</a></li>
+      </ul></div>
+      <div><h2>Formalności</h2><ul>
+        <li><a href="https://nacomi-shop.pl/pl/i/Regulamin-AKTUALNY/28">Regulamin</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Polityka-prywatnosci-RODO/11">Prywatność</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Pliki-cookies/16">Cookies</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Projekty-UE/14">Projekty UE</a></li>
+      </ul></div>
+      <div><h2>Więcej</h2><ul>
+        <li><a href="https://nacomi-shop.pl/pl/n/list">Blog</a></li>
+        <li><a href="https://www.instagram.com/nacomi_naturalne_kosmetyki/">Instagram</a></li>
+        <li><a href="https://www.nacomigroup.pl">Współpraca B2B</a></li>
+      </ul></div>
+    </div>
+    <div class="legal">Nacomi Group Sp. z o.o., ul. Ziołowa 29, 43-365 Wilkowice · NIP 5532518964</div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ══════════ PRZED ══════════ -->
+<div id="before">
+  <div class="audit-note"><div class="wrap"><strong>Widok „przed"</strong> — audyt listy kategorii „Kremy do twarzy" na nacomi-shop.pl.</div></div>
+  <section class="audit">
+    <div class="wrap">
+
+      <div class="stats">
+        <div class="stat"><b>33</b><span>produkty w kategorii</span></div>
+        <div class="stat"><b>2</b><span>dostępne filtry</span></div>
+        <div class="stat"><b>1</b><span>produkt po filtrze „Kolekcja"</span></div>
+        <div class="stat"><b>18</b><span>nazw zaczynających się identycznie</span></div>
+      </div>
+
+      <div class="snip">
+        <h3>Sekcja zaufania — tekst faktycznie wyświetlany na polskiej stronie</h3>
+        <div class="row"><span class="en">Guarantee of high quality</span></div>
+        <div class="row"><span class="en">Shipment in 24h</span> <span style="color:var(--ink-soft)">— sprzeczne z „wysyłka 2–5 dni" w regulaminie</span></div>
+        <div class="row"><span class="en">Free returns for orders</span></div>
+        <div class="row"><span class="en">Free delivery over 50$</span> <span style="color:var(--ink-soft)">— nagłówek tej samej strony mówi „Darmowa dostawa od 99 zł"</span></div>
+        <div class="row"><span class="en">Sustainable products</span></div>
+      </div>
+
+      <div class="snip">
+        <h3>Nazwy produktów — pierwsze słowa, które widzi oko przy skanowaniu</h3>
+        <div class="row"><span class="en">Nacomi Next Lvl - Krem do twarzy -</span> Nawilżający Pure balance 40ml</div>
+        <div class="row"><span class="en">Nacomi Next Lvl - Krem do twarzy -</span> Regenerująco - Łagodzący 40ml</div>
+        <div class="row"><span class="en">Nacomi Next Lvl - Krem do twarzy -</span> Nawilżający z elektrolitami 40ml</div>
+        <div class="row"><span class="en">Nacomi Next Lvl - Krem do twarzy -</span> Antyoksydacyjny z peptydami 40ml</div>
+        <div class="row"><span class="pl">Po zmianie:</span> tag linii + „Pure Balance — krem nawilżający" + pojemność</div>
+      </div>
+
+      <div class="issues" style="margin-top:44px">
+        <h2>co dokładnie nie działa</h2>
+        <ol>
+          <li><b>Filtry nie filtrują</b>Dostępne są tylko Marka i Kolekcja. Kolekcja ma trzy wartości po jednym produkcie — po jej użyciu z 33 pozycji zostaje 1.</li>
+          <li><b>Brak filtrów, które mają znaczenie</b>Nie da się zawęzić po problemie skóry, cenie ani obecności SPF. W kategorii są jednocześnie kremy na trądzik, na atopię i cztery różne filtry przeciwsłoneczne.</li>
+          <li><b>Nazwy blokują skanowanie</b>18 z 33 pozycji zaczyna się od tych samych czterech słów. Przy skanowaniu pionowym oko łapie początek nazwy — tu początek jest zawsze taki sam.</li>
+          <li><b>Sekcja zaufania po angielsku i w dolarach</b>Pozostałość szablonu demo. Obiecuje darmową dostawę powyżej 50$, gdy nagłówek mówi 99 zł.</li>
+          <li><b>Filtr wymaga trzech kliknięć</b>Rozwiń, zaznacz, „Zastosuj filtry”. Standardem rynkowym jest jedno kliknięcie i natychmiastowy wynik.</li>
+          <li><b>Drobne, ale widoczne</b>„Podkategorie” zawierają jedną pozycję — link do kategorii nadrzędnej. Brak licznika wyników. Brak przycisku „Do koszyka”, choć na stronie głównej jest. Serum leży w kategorii kremów.</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+var P=[
+ {n:"Bio-Sync — krem do twarzy",l:"Ethic Care",s:"50 ml",p:47,pr:["suchosc"],spf:0,i:"productGfx_1752_2000_2000/_0015_5902539727395_Ethic-Care-Bio-Sync-Cream-krem-do-twarzy-50ml_2.webp",u:"1328"},
+ {n:"Pure Balance — krem nawilżający",l:"Next Lvl",s:"40 ml",p:30,pr:["suchosc"],spf:0,i:"productGfx_2834_2000_2000/Nacomi-Next-Lvl---Crema-hidratante-Pure-Balance-30ml.webp",u:"1278"},
+ {n:"Krem regenerująco-łagodzący",l:"Next Lvl",s:"40 ml",p:40,pr:["wrazliwa"],spf:0,i:"productGfx_2833_2000_2000/Crema-regeneradora-con-efecto-calmante-inmediato.webp",u:"1279"},
+ {n:"Krem nawilżający z elektrolitami",l:"Next Lvl",s:"40 ml",p:35,pr:["suchosc"],spf:0,i:"productGfx_2836_2000_2000/Crema-facial-hidratante-40ml.webp",u:"1276"},
+ {n:"Krem antyoksydacyjny z peptydami",l:"Next Lvl",s:"40 ml",p:45,pr:["zmarszczki"],spf:0,i:"productGfx_2835_2000_2000/Crema-antioxidante-con-peptidos-40ml.webp",u:"1277"},
+ {n:"Krem SPF 30 z ochroną mitochondrialną",l:"Next Lvl",s:"40 ml",p:43,pr:["zmarszczki"],spf:1,i:"productGfx_2838_2000_2000/Crema-energizante-con-proteccion-mitocondrial-SPF-30.webp",u:"1274"},
+ {n:"Krem ultranawilżający z Omega 9",l:"Next Lvl",s:"40 ml",p:35,pr:["suchosc"],spf:0,i:"productGfx_2837_2000_2000/Nacomi-Next-Lvl---Crema-ultra-hidratante-con-prebioticos%2C-escualano-y-Omega-9---40ml.webp",u:"1275"},
+ {n:"Krem SPF 50 lekki na dzień",l:"Next Lvl",s:"40 ml",p:43,pr:[],spf:1,i:"productGfx_2839_2000_2000/Nacomi-Next-Lvl---Crema-de-dia-ligera-SPF-50---40ml-1.webp",u:"1273"},
+ {n:"Krem SPF 50 UV City",l:"Next Lvl",s:"50 ml",p:46,pr:[],spf:1,i:"productGfx_2178_2000_2000/5902539706741_Miejski-krem-do-twarzy-z-filtrem-SPF-50----CITY.webp",u:"1077"},
+ {n:"Krem SPF 50 UV Holiday",l:"Next Lvl",s:"50 ml",p:53,pr:["zmarszczki"],spf:1,i:"productGfx_2184_2000_2000/5902539706758_Przeciwzmarszczkowy-krem-do-twarzy-z-filtrem-SPF-50-HOLIDAY.webp",u:"1072"},
+ {n:"Krem SPF 50 UV Basic",l:"Next Lvl",s:"50 ml",p:43,pr:["suchosc"],spf:1,i:"productGfx_2185_2000_2000/5902539706734_Nawilzajacy-krem-do-twarzy-z-filtrem-SPF-50-BASIC.webp",u:"1071"},
+ {n:"Rich Recovery — krem Midnight",l:"Nacomi",s:"40 ml",p:44,pr:["zmarszczki"],spf:0,i:"productGfx_1877_2000_2000/Rich-recovery---Krem-do-twarzy---MIDNIGHT-40ml.webp",u:"1224"},
+ {n:"Deep Hydration — krem Coconut",l:"Nacomi",s:"40 ml",p:46,pr:["suchosc"],spf:0,i:"productGfx_1893_2000_2000/Deep-hydration-Krem-do-twarzy-COCONUT-40ml.webp",u:"1220"},
+ {n:"Rich & Comfy — krem Avocado",l:"Nacomi",s:"40 ml",p:43,pr:["wrazliwa","suchosc"],spf:0,i:"productGfx_1905_2000_2000/Richcomfy-regeneration-Krem-do-twarzy-AVOCADO-40ml.webp",u:"1217"},
+ {n:"Zero Pore & Blemishes — krem Marshmallow",l:"Nacomi",s:"40 ml",p:33,pr:["tradzik"],spf:0,i:"productGfx_1969_2000_2000/Zero-pore--blemishes-Krem-do-twarzy-MARSHMALLOW-40ml.webp",u:"1215"},
+ {n:"Glass Skin — krem rozświetlający",l:"Nacomi",s:"50 ml",p:42,pr:["przebarwienia"],spf:0,i:"productGfx_2074_2000_2000/Krem-do-twarzy-Glass-skin-50ml.webp",u:"1139"},
+ {n:"Yoga — krem do twarzy",l:"Nacomi",s:"50 ml",p:43,pr:["suchosc"],spf:0,i:"productGfx_2146_2000_2000/Krem-Yoga-do-twarzy-50ml.webp",u:"1097"},
+ {n:"Proteinowy plaster — krem do skóry atopowej",l:"Next Lvl Dermo",s:"50 ml",p:45,pr:["wrazliwa"],spf:0,i:"productGfx_2150_2000_2000/Proteinowy-plaster---krem-do-skory-atopowej-50-ml.webp",u:"1096"},
+ {n:"Lekki krem do cery trądzikowej",l:"Next Lvl Dermo",s:"50 ml",p:42,pr:["tradzik"],spf:0,i:"productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp",u:"1093"},
+ {n:"Punktowy krem na niedoskonałości",l:"Next Lvl Dermo",s:"30 ml",p:30,pr:["tradzik"],spf:0,b:1,i:"productGfx_2157_2000_2000/Punktowy-krem-przeciwdzialajacy-niedoskonaloscia-30ml-5902539717570.webp",u:"1089"},
+ {n:"Wielopoziomowy krem intensywnie nawilżający",l:"Next Lvl Dermo",s:"50 ml",p:43,pr:["suchosc"],spf:0,b:1,i:"productGfx_2175_2000_2000/Wielopoziomowy-krem-intensywnie-nawilzajacy-50-ml.webp",u:"1088"},
+ {n:"Proteinowy krem do skóry atopowej",l:"Next Lvl Dermo",s:"150 ml",p:44,pr:["wrazliwa","suchosc"],spf:0,i:"productGfx_2155_2000_2000/Proteinowy-krem-do-twarzy-i-ciala-dla-skory-atopowej%2C-suchej-i-podraznionej-150-ml.webp",u:"1091"},
+ {n:"Kremowy suflet rozświetlający",l:"Nacomi",s:"50 ml",p:48,pr:["przebarwienia"],spf:0,i:"productGfx_2225_2000_2000/Kremowy-suflet-rozswietlajacy-50ml.webp",u:"890"},
+ {n:"Kremowy suflet wygładzający",l:"Nacomi",s:"50 ml",p:45,pr:["zmarszczki"],spf:0,i:"productGfx_2236_2000_2000/Kremowy-suflet-wygladzajacy-50ml.webp",u:"888"},
+ {n:"Kremowy suflet przeciwzmarszczkowy",l:"Nacomi",s:"50 ml",p:48,pr:["zmarszczki"],spf:0,i:"productGfx_2230_2000_2000/Kremowy-suflet-antyoksydacyjny-przeciwzmarszczkowy-50ml.webp",u:"889"},
+ {n:"Krem normalizujący na dzień +20",l:"Nacomi",s:"50 ml",p:44,pr:["tradzik"],spf:0,i:"productGfx_2324_2000_2000/Krem-normalizujacy-na-dzien-dla-mlodej-cery--20%2C-50ml.webp",u:"230"},
+ {n:"Krem shea na noc +50",l:"Nacomi",s:"50 ml",p:53,pr:["zmarszczki"],spf:0,i:"productGfx_2369_2000_2000/Krem-shea-na-noc--50%2C-50-ml.webp",u:"209"}
+];
+
+var LABEL={tradzik:"Trądzik",zmarszczki:"Zmarszczki",suchosc:"Suchość",przebarwienia:"Przebarwienia",wrazliwa:"Cera wrażliwa",tak:"Z SPF",a:"do 40 zł",b:"40–48 zł",c:"powyżej 48 zł"};
+var IMG="https://nacomi-shop.pl/environment/cache/images/";
+
+function band(p){return p<40?"a":(p<=48?"b":"c")}
+function active(){
+  var o={problem:[],spf:[],cena:[],linia:[]};
+  document.querySelectorAll('[data-f]:checked').forEach(function(c){o[c.dataset.f].push(c.value)});
+  return o;
+}
+function match(x,f){
+  if(f.problem.length && !f.problem.some(function(v){return x.pr.indexOf(v)>-1})) return false;
+  if(f.spf.length && !x.spf) return false;
+  if(f.cena.length && f.cena.indexOf(band(x.p))<0) return false;
+  if(f.linia.length && f.linia.indexOf(x.l)<0) return false;
+  return true;
+}
+function render(){
+  var f=active(), out=P.filter(function(x){return match(x,f)});
+  var s=document.getElementById('sort').value;
+  if(s==='price-asc') out.sort(function(a,b){return a.p-b.p});
+  if(s==='price-desc') out.sort(function(a,b){return b.p-a.p});
+  if(s==='name') out.sort(function(a,b){return a.n.localeCompare(b.n,'pl')});
+
+  document.getElementById('count').innerHTML='<strong>'+out.length+'</strong> '+
+    (out.length===1?'produkt':(out.length%10>=2&&out.length%10<=4&&(out.length<12||out.length>14)?'produkty':'produktów'))+
+    (out.length<P.length?' <em>z '+P.length+'</em>':'');
+
+  var ch=document.getElementById('chips'); ch.innerHTML='';
+  Object.keys(f).forEach(function(k){ f[k].forEach(function(v){
+    var b=document.createElement('button');
+    b.className='chip'; b.innerHTML=(LABEL[v]||v)+' <b>×</b>';
+    b.onclick=function(){
+      document.querySelector('[data-f="'+k+'"][value="'+v+'"]').checked=false; render();
+    };
+    ch.appendChild(b);
+  })});
+
+  document.querySelectorAll('[data-cnt]').forEach(function(el){
+    var pair=el.dataset.cnt.split(':'), key=pair[0], val=pair.slice(1).join(':');
+    var t=JSON.parse(JSON.stringify(f)); t[key]=[val];
+    var c=P.filter(function(x){return match(x,t)}).length;
+    el.textContent=c;
+    var lab=el.closest('.fopt');
+    if(lab) lab.classList.toggle('off', c===0 && !lab.querySelector('input').checked);
+  });
+
+  var g=document.getElementById('grid'); g.innerHTML='';
+  document.getElementById('empty').hidden=out.length>0;
+  if(window.syncQuick) syncQuick();
+  out.forEach(function(x){
+    var a=document.createElement('article'); a.className='card';
+    a.innerHTML=
+      '<div class="card-img"><img loading="lazy" alt="'+x.n+'" src="'+IMG+x.i+'"></div>'+
+      '<span class="line-tag'+(x.b?' best':'')+'">'+(x.b?'Bestseller':x.l)+'</span>'+
+      '<h3><a href="https://nacomi-shop.pl/pl/p/x/'+x.u+'">'+x.n+'</a></h3>'+
+      '<span class="size">'+x.s+(x.b?' · '+x.l:'')+'</span>'+
+      '<span class="price">'+x.p.toFixed(2).replace('.',',')+' zł</span>'+
+      '<button class="add" type="button">Do koszyka</button>';
+    g.appendChild(a);
+  });
+}
+document.querySelectorAll('[data-f]').forEach(function(c){c.addEventListener('change',render)});
+document.getElementById('sort').addEventListener('change',render);
+document.querySelectorAll('[data-quick]').forEach(function(q){
+  q.addEventListener('click',function(){
+    var v=q.dataset.quick;
+    var box=document.querySelector('[data-f="problem"][value="'+v+'"]')
+         || document.querySelector('[data-f="spf"][value="tak"]');
+    if(!box) return;
+    box.checked=!box.checked;
+    q.setAttribute('aria-pressed',String(box.checked));
+    render();
+  });
+});
+function syncQuick(){
+  document.querySelectorAll('[data-quick]').forEach(function(q){
+    var v=q.dataset.quick;
+    var box=document.querySelector('[data-f="problem"][value="'+v+'"]')
+         || document.querySelector('[data-f="spf"][value="tak"]');
+    if(box) q.setAttribute('aria-pressed',String(box.checked));
+  });
+}
+document.getElementById('clear').addEventListener('click',function(){
+  document.querySelectorAll('[data-f]:checked').forEach(function(c){c.checked=false}); render();
+});
+render();
+
+(function(){
+  var b=document.getElementById('btn-before'), a=document.getElementById('btn-after');
+  function set(s){document.body.classList.toggle('show-before',s);b.setAttribute('aria-pressed',String(s));a.setAttribute('aria-pressed',String(!s));window.scrollTo(0,0)}
+  b.addEventListener('click',function(){set(true)});
+  a.addEventListener('click',function(){set(false)});
+})();
+</script>
+
+</body>
+</html>

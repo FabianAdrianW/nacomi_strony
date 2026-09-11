@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lekki krem do cery trądzikowej 50 ml — Nacomi Next Lvl Dermo</title>
+<meta name="description" content="Lekki krem do cery trądzikowej z niacynamidem, bisabololem i kwasem glicyretynowym. Redukuje niedoskonałości i normalizuje sebum. 42 zł, wysyłka 1–2 dni.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2A1F24; --ink-soft:#6B5560; --base:#F4EAED;   /* poziom 0 — dno strony */
+  --paper:#FBF5F6;  /* poziom 1 — powierzchnie uniesione */ --surface:#F4E2E8; --line:#E7D3DA;
+  --rose:#9A4560; --clay:#5B4550; --sage:#38796B; --alert:#B0522A;
+  --f-disp:'Hanken Grotesk',system-ui,sans-serif; --f-body:'Hanken Grotesk',system-ui,sans-serif;
+  --r:6px; --wrap:1180px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f-body);background:var(--base);color:var(--ink);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,select{font:inherit}
+:focus-visible{outline:3px solid var(--sage);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:24px;top:12px;z-index:99;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+.util{background:var(--ink);color:var(--paper);font-size:13.5px}
+.util .wrap{display:flex;justify-content:center;gap:28px;padding:9px 24px;flex-wrap:wrap}
+.util b{font-weight:600}
+.hdr{
+  position:sticky;top:0;z-index:40;background:var(--paper);
+  box-shadow:0 1px 0 rgba(255,255,255,.85), 0 6px 18px -6px rgba(154,69,96,.20);
+}
+.hdr .wrap{display:flex;align-items:center;gap:20px;min-height:72px}
+.brand{font-family:var(--f-disp);font-weight:500;font-size:26px;letter-spacing:-.02em;flex:none}
+.brand span{color:var(--rose)}
+.search{flex:1;max-width:400px}
+.search input{width:100%;font-size:15px;padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
+.hdr-acts{margin-left:auto;display:flex;align-items:center;gap:6px;flex:none}
+.hdr-acts a{padding:9px 14px;border-radius:999px;font-size:14.5px;font-weight:500;transition:background .2s,color .2s}
+.hdr-acts a:hover{background:var(--surface)}
+.hdr-acts .cart{background:var(--ink);color:var(--paper)}
+.hdr-acts .cart:hover{background:var(--rose)}
+.switch{margin-left:14px;flex:none}
+.switch-track{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.switch-track button{font:inherit;font-size:13px;font-weight:600;cursor:pointer;border:0;background:transparent;color:var(--ink-soft);padding:6px 15px;border-radius:999px;transition:background .2s,color .2s}
+.switch-track button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.nav{
+  position:relative;z-index:30;background:var(--paper);
+  box-shadow:0 4px 12px -8px rgba(154,69,96,.22);
+}
+.nav ul{list-style:none;display:flex;gap:4px;flex-wrap:wrap;padding:6px 0}
+.nav a{display:block;padding:10px 16px;font-size:15px;font-weight:500;border-radius:999px}
+.nav a:hover{background:var(--surface)}
+.crumbs{padding:20px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.crumbs a:hover{color:var(--rose)}
+.crumbs span{margin:0 7px}
+
+/* ── blok zakupowy ── */
+.top{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;padding:28px 0 56px}
+.gal{position:sticky;top:96px;align-self:start}
+.gal-main{background:#F7EAEF;border:1px solid var(--line);border-radius:var(--r);aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:28px;overflow:hidden}
+.gal-main img{width:100%;height:100%;object-fit:contain;transition:opacity .25s}
+.thumbs{display:flex;gap:10px;margin-top:12px}
+.thumb{width:78px;height:78px;flex:none;background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:8px;cursor:pointer;transition:border-color .2s}
+.thumb img{width:100%;height:100%;object-fit:contain}
+.thumb[aria-current="true"]{border-color:var(--ink);border-width:2px}
+.thumb:hover{border-color:var(--ink-soft)}
+
+.buy{align-self:start}
+.line-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:4px 11px;border-radius:999px}
+.buy h1{font-family:var(--f-disp);font-weight:300;font-size:clamp(28px,3.6vw,40px);line-height:1.08;letter-spacing:-.035em;margin:14px 0 6px}
+.vol{font-size:15px;color:var(--ink-soft)}
+.lede{margin-top:16px;font-size:16.5px;color:var(--ink-soft);max-width:48ch}
+
+.claims{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.claim{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:14px;font-weight:500}
+.claim::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);flex:none}
+
+.pricebox{margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
+.price{font-family:var(--f-disp);font-weight:500;font-size:38px;letter-spacing:-.02em;line-height:1}
+.perml{font-size:14px;color:var(--ink-soft);margin-top:6px}
+.stock{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14.5px;font-weight:500;color:var(--sage)}
+.stock::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage)}
+.actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:#fff;flex:none}
+.qty button{width:44px;height:52px;border:0;background:transparent;font-size:19px;cursor:pointer;color:var(--ink)}
+.qty button:hover{color:var(--rose)}
+.qty span{width:36px;text-align:center;font-weight:600}
+.addcart{flex:1;min-width:200px;height:52px;border:0;border-radius:999px;
+  background:linear-gradient(180deg, #A94E6A 0%, var(--rose) 46%, #8B3D54 100%);
+  color:#fff;font-size:16.5px;font-weight:600;cursor:pointer;transition:filter .2s;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34)}
+.addcart:hover{filter:brightness(1.08)}
+
+.fav{width:52px;height:52px;border:1px solid var(--line);border-radius:999px;background:transparent;cursor:pointer;font-size:18px;flex:none}
+.fav:hover{border-color:var(--rose);color:var(--rose)}
+
+.ship{margin-top:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:16px 18px;font-size:14.5px}
+.ship div{display:flex;gap:10px;padding:6px 0}
+.ship b{font-weight:600}
+.ship .k{color:var(--ink-soft);min-width:112px;flex:none}
+
+/* ── sekcje ── */
+.sec{padding:60px 0}
+.sec.field{background:#F0C0D0;border-top:0}
+.sec.field .intro{color:#4A343D}
+.sec.field .card{background:#FBF2F5;border-color:#E3A9C1}
+.sec.field .card.this{border-color:var(--rose);border-width:2px}
+.sec.field .card .step{color:#6B4152}
+.sec.field .card.this .step{color:var(--rose)}
+.sec.field .add{border-color:var(--rose);color:var(--rose)}
+.sec.field .add:hover{background:var(--rose);color:#fff}
+.sec h2{font-family:var(--f-disp);font-weight:300;font-size:clamp(24px,3vw,32px);letter-spacing:-.03em;line-height:1.12}
+.sec .intro{margin-top:12px;max-width:66ch;color:var(--ink-soft)}
+
+.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.act{background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.act h3{font-family:var(--f-disp);font-weight:300;font-size:19px;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:10px}
+.act h3::before{content:"";width:13px;height:13px;border-radius:50%;flex:none;
+  background:radial-gradient(circle at 34% 26%, #FDE4EE 0%, #F0A8C6 46%, #C8628C 100%);
+  box-shadow:inset -2px -2px 3px rgba(0,0,0,.14)}
+.act .inci{font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em;text-transform:uppercase;font-weight:600;margin-top:3px}
+.act p{margin-top:10px;font-size:15px;color:var(--ink-soft)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:28px}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps li::before{content:counter(s);font-family:var(--f-disp);font-weight:500;font-size:15px;color:var(--rose);border:1px solid var(--line);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.forwho{list-style:none}
+.forwho li{padding:11px 0;border-top:1px solid var(--line);display:flex;gap:11px;font-size:15.5px}
+.forwho li:first-child{border-top:0;padding-top:0}
+.forwho li::before{content:"✓";color:var(--sage);font-weight:700;flex:none}
+
+details{border-top:1px solid var(--line);padding:18px 0}
+details summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-size:21px;color:var(--ink-soft);font-weight:400}
+details[open] summary::after{content:"−"}
+details .body{padding-top:14px;font-size:15px;color:var(--ink-soft);max-width:78ch}
+details .body p+p{margin-top:12px}
+.inci-list{font-size:14px;line-height:1.7;word-spacing:.05em}
+
+.rel{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.card{background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;position:relative}
+.card:hover{border-color:var(--ink-soft);transform:translateY(-2px)}
+.card.this{border-color:var(--rose);border-width:2px}
+.card .step{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px}
+.card.this .step{color:var(--rose)}
+.card-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;margin-bottom:12px}
+.card-img img{width:100%;height:100%;object-fit:contain}
+.card h3{font-size:15px;font-weight:500;line-height:1.32;margin-bottom:6px}
+.card .price-s{margin-top:auto;font-weight:600;font-size:16.5px;padding-top:8px}
+.card .add{margin-top:10px;width:100%;padding:9px;border-radius:999px;cursor:pointer;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:13.5px;font-weight:600;transition:background .2s,color .2s}
+.card .add:hover{background:var(--ink);color:var(--paper)}
+
+.foot{background:var(--ink);color:var(--paper);padding:40px 0 28px;font-size:14.5px}
+.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.foot h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9C8790;font-weight:600;margin-bottom:13px}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot a:hover{color:#F0C0D0}
+.foot .legal{margin-top:30px;padding-top:18px;border-top:1px solid #40323A;font-size:13px;color:#9C8790}
+
+/* pasek mobilny */
+.sticky-buy{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);box-shadow:0 -6px 20px -8px rgba(154,69,96,.28);padding:12px 20px;display:none;gap:14px;align-items:center}
+.sticky-buy .p{font-weight:600;font-size:18px;flex:none}
+.sticky-buy button{flex:1;height:46px;border:0;border-radius:999px;background:var(--rose);color:#fff;font-weight:600;font-size:15.5px}
+
+/* ── widok przed ── */
+#before{display:none}
+body.show-before #after{display:none}
+body.show-before #before{display:block}
+.audit-note{background:var(--ink);color:var(--paper);padding:16px 0;font-size:14px}
+.audit-note strong{color:#F0C0D0}
+.audit{padding:34px 0 64px}
+.attr{background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:28px}
+.attr h3{font-family:var(--f-disp);font-weight:300;font-size:20px;font-weight:600;margin-bottom:4px}
+.attr .sub{font-size:14px;color:var(--ink-soft);margin-bottom:14px}
+.attr .row{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.attr .row:first-of-type{border-top:0}
+.attr .no{color:var(--alert);font-weight:700}
+.attr .flag{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.attr .flag b{color:var(--ink)}
+.flow{list-style:none;display:flex;flex-direction:column;gap:8px;counter-reset:f;margin-top:20px}
+.flow li{counter-increment:f;display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px}
+.flow li.bad{border-color:var(--alert);background:#F7E3DA}
+.flow .num{font-family:var(--f-disp);font-weight:500;font-size:15px;color:var(--ink-soft);flex:none;min-width:26px}
+.flow .body b{display:block;font-size:15.5px}
+.flow .body span{font-size:14px;color:var(--ink-soft)}
+.flow .mark{margin-left:auto;flex:none;background:var(--alert);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.issues ol{list-style:none;counter-reset:p;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:20px}
+.issues li{counter-increment:p;background:var(--surface);border-left:3px solid var(--alert);border-radius:0 var(--r) var(--r) 0;padding:16px 18px;font-size:15px}
+.issues li::before{content:counter(p,decimal-leading-zero);display:block;font-family:var(--f-disp);font-weight:500;font-size:13px;color:var(--alert);margin-bottom:6px}
+.issues li b{display:block;margin-bottom:4px}
+.issues h2{font-family:var(--f-disp);font-weight:300;font-size:30px;letter-spacing:-.02em}
+
+
+/* ── GŁĘBIA ──────────────────────────────────────────────────
+   Cień dostaje tylko to, co dałoby się podnieść: karty, panele,
+   obiekty. Nie sekcje, nie pasma tła. Cień jest różowy, nie szary —
+   szary na różowej stronie czyta się jak brud. Górna krawędź dostaje
+   wąskie rozświetlenie, tak jak połyskliwe obiekty marki.        */
+:root{
+  --lift-1:0 1px 2px rgba(154,69,96,.06), 0 6px 16px -6px rgba(154,69,96,.18), inset 0 1px 0 rgba(255,255,255,.72);
+  --lift-2:0 2px 5px rgba(154,69,96,.09), 0 18px 34px -12px rgba(154,69,96,.28), inset 0 1px 0 rgba(255,255,255,.82);
+}
+.card,.scent-card,.choice,.diag-card,.act{border-color:transparent;box-shadow:var(--lift-1)}
+.card:hover,.scent-card:hover,.choice:hover,.diag-card:hover{box-shadow:var(--lift-2)}
+.card.lead{box-shadow:var(--lift-2)}
+
+@media (max-width:980px){
+  .top{grid-template-columns:1fr;gap:32px;padding-bottom:36px}
+  .gal{position:static}
+  .acts{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr;gap:32px}
+  .rel{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px;padding-bottom:74px}
+  .hdr .wrap{flex-wrap:wrap;min-height:0;padding-top:12px;padding-bottom:12px;gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .util .wrap{gap:14px;font-size:12.5px}
+  .rel,.foot-grid{grid-template-columns:1fr}
+  .sticky-buy{display:flex}
+  body.show-before .sticky-buy{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Przejdź do treści</a>
+
+<div class="util">
+  <div class="wrap">
+    <span><b>Darmowa dostawa</b> od 99 zł</span>
+    <span>Wysyłka w 1–2 dni robocze</span>
+    <span>Zwrot do 14 dni</span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#">nacomi<span>.</span></a>
+    <div class="search"><label class="skip" for="q">Szukaj</label><input id="q" type="search" placeholder="Szukaj: serum, olej, peeling…"></div>
+    <nav class="hdr-acts" aria-label="Konto i koszyk">
+      <a href="#">Ulubione</a><a href="#">Konto</a><a class="cart" href="#">Koszyk · 0</a>
+    </nav>
+    <div class="switch"><div class="switch-track" role="group" aria-label="Przełącz widok">
+      <button type="button" id="btn-before" aria-pressed="false">Przed</button>
+      <button type="button" id="btn-after" aria-pressed="true">Po</button>
+    </div></div>
+  </div>
+</header>
+
+<!-- ══════════ PO ══════════ -->
+<div id="after">
+
+<nav class="nav" aria-label="Kategorie">
+  <div class="wrap"><ul>
+    <li><a href="https://nacomi-shop.pl/pl/c/Twarz/477">Twarz</a></li>
+    <li><a href="https://nacomi-shop.pl/pl/c/Cialo/487">Ciało</a></li>
+    <li><a href="https://nacomi-shop.pl/pl/c/Wlosy/495">Włosy</a></li>
+    <li><a href="https://nacomi-shop.pl/pl/c/Dzialanie/519">Według działania</a></li>
+    <li><a href="https://nacomi-shop.pl/pl/c/Nowosci/503">Nowości</a></li>
+    <li><a href="https://nacomi-shop.pl/pl/c/Bestsellery/77">Bestsellery</a></li>
+  </ul></div>
+</nav>
+
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Ścieżka">
+      <a href="#">Nacomi</a><span>/</span><a href="https://nacomi-shop.pl/pl/c/Twarz/477">Twarz</a><span>/</span><a href="https://nacomi-shop.pl/pl/c/Kremy-do-twarzy/478">Kremy do twarzy</a><span>/</span>Lekki krem do cery trądzikowej
+    </nav>
+
+    <div class="top">
+
+      <div class="gal">
+        <div class="gal-main">
+          <img id="gal-img" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp" alt="Nacomi Next Lvl Dermo — lekki krem do cery trądzikowej 50 ml, opakowanie">
+        </div>
+        <div class="thumbs" role="group" aria-label="Zdjęcia produktu">
+          <button class="thumb" type="button" aria-current="true" data-src="https://nacomi-shop.pl/environment/cache/images/productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp"><img src="https://nacomi-shop.pl/environment/cache/images/productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp" alt="Opakowanie"></button>
+          <button class="thumb" type="button" data-src="https://nacomi-shop.pl/environment/cache/images/productGfx_2157_2000_2000/Punktowy-krem-przeciwdzialajacy-niedoskonaloscia-30ml-5902539717570.webp"><img src="https://nacomi-shop.pl/environment/cache/images/productGfx_2157_2000_2000/Punktowy-krem-przeciwdzialajacy-niedoskonaloscia-30ml-5902539717570.webp" alt="Linia Dermo"></button>
+          <button class="thumb" type="button" data-src="https://nacomi-shop.pl/environment/cache/images/productGfx_2175_2000_2000/Wielopoziomowy-krem-intensywnie-nawilzajacy-50-ml.webp"><img src="https://nacomi-shop.pl/environment/cache/images/productGfx_2175_2000_2000/Wielopoziomowy-krem-intensywnie-nawilzajacy-50-ml.webp" alt="Format opakowania"></button>
+        </div>
+      </div>
+
+      <div class="buy">
+        <span class="line-tag">Next Lvl Dermo</span>
+        <h1>Lekki krem do cery trądzikowej</h1>
+        <span class="vol">50 ml · krem na dzień i na noc</span>
+
+        <p class="lede">Aktywny krem o lekkiej konsystencji. Odblokowuje pory, zmniejsza widoczność zaskórników i przebarwień potrądzikowych oraz zapobiega ich ponownemu powstawaniu.</p>
+
+        <div class="claims">
+          <span class="claim">Redukcja niedoskonałości</span>
+          <span class="claim">Regulacja sebum</span>
+          <span class="claim">Ukojenie podrażnień</span>
+          <span class="claim">Nawilżenie</span>
+        </div>
+
+        <div class="pricebox">
+          <div class="price">42,00 zł</div>
+          <div class="perml">0,84 zł za mililitr</div>
+          <span class="stock">Duża dostępność — wysyłka w 1–2 dni robocze</span>
+
+          <div class="actions">
+            <div class="qty">
+              <button type="button" id="minus" aria-label="Zmniejsz ilość">−</button>
+              <span id="qty" aria-live="polite">1</span>
+              <button type="button" id="plus" aria-label="Zwiększ ilość">+</button>
+            </div>
+            <button class="addcart" type="button">Dodaj do koszyka</button>
+            <button class="fav" type="button" aria-label="Dodaj do ulubionych">♡</button>
+          </div>
+
+          <div class="ship">
+            <div><span class="k">Dostawa</span><span>od <b>7,99 zł</b> — DPD Pickup, Paczkomaty, Żabka</span></div>
+            <div><span class="k">Darmowa</span><span>przy zamówieniu <b>od 99 zł</b></span></div>
+            <div><span class="k">Zwrot</span><span>do <b>14 dni</b> bez podawania przyczyny</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="eyebrow">Co w tym działa</span>
+      <h2>pięć składników aktywnych</h2>
+      <p class="intro">Formuła oparta na składnikach o udokumentowanym działaniu przeciwtrądzikowym i łagodzącym.</p>
+      <div class="acts">
+        <div class="act"><h3>Niacynamid</h3><div class="inci">Niacinamide</div><p>Reguluje produkcję sebum i normalizuje rogowacenie naskórka. Przyspiesza gojenie stanów zapalnych, wyrównuje koloryt i rozjaśnia przebarwienia.</p></div>
+        <div class="act"><h3>Kwas glicyretynowy</h3><div class="inci">Glycyrrhetinic acid</div><p>Łagodzi podrażnienia i stany zapalne, ogranicza nadmierne wydzielanie sebum. Hamuje powstawanie przebarwień dzięki właściwościom depigmentacyjnym.</p></div>
+        <div class="act"><h3>Bisabolol</h3><div class="inci">Bisabolol</div><p>Pozyskiwany z kwiatów rumianku. Zwiększa przenikanie pozostałych składników przez warstwę rogową, działa przeciwbakteryjnie i łagodząco.</p></div>
+        <div class="act"><h3>Trehaloza</h3><div class="inci">Trehalose</div><p>Jeden z najskuteczniejszych składników nawilżających. Nawilża bez obciążania skóry, łagodzi podrażnienia i wygładza drobne zmarszczki.</p></div>
+        <div class="act"><h3>Alantoina</h3><div class="inci">Allantoin</div><p>Wspomaga regenerację, łagodzi zaczerwienienia, zmniejsza pieczenie i świąd. Zmiękcza skórę i działa antyoksydacyjnie.</p></div>
+        <div class="act"><h3>Elestab™</h3><div class="inci">Hexamidine Diisethionate</div><p>Kompleks konserwująco-aktywny. W połączeniu z bisabololem działa przeciwbakteryjnie, przyspieszając eliminację zmian skórnych.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="two">
+        <div>
+          <span class="eyebrow">Jak stosować</span>
+          <h2>trzy kroki</h2>
+          <ol class="steps" style="margin-top:24px">
+            <li><span><b>Oczyść i stonizuj skórę.</b><br><span style="color:var(--ink-soft);font-size:15px">Krem nakładaj na przygotowaną skórę — inaczej składniki aktywne wnikają gorzej.</span></span></li>
+            <li><span><b>Nałóż cienką warstwę.</b><br><span style="color:var(--ink-soft);font-size:15px">Rano i wieczorem. Więcej nie znaczy skuteczniej.</span></span></li>
+            <li><span><b>Pozostaw do wchłonięcia.</b><br><span style="color:var(--ink-soft);font-size:15px">Unikaj kontaktu z oczami. Produkt do użytku zewnętrznego.</span></span></li>
+          </ol>
+        </div>
+        <div>
+          <span class="eyebrow">Dla kogo</span>
+          <h2>typ skóry</h2>
+          <ul class="forwho" style="margin-top:24px">
+            <li>Skóra trądzikowa</li>
+            <li>Skóra skłonna do podrażnień</li>
+            <li>Skóra atopowa i szczególnie wrażliwa — przeszedł Skin Compatibility Test</li>
+            <li>Spełnia wymagania dla kosmetyków hipoalergicznych</li>
+            <li>Testowany dermatologicznie, nietestowany na zwierzętach</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="eyebrow">Szczegóły</span>
+      <h2>skład i bezpieczeństwo</h2>
+      <div style="margin-top:24px">
+        <details>
+          <summary>Pełny skład INCI</summary>
+          <div class="body">
+            <p class="inci-list">Aqua, Niacinamide, Propanediol, Glycerin, Coco-Caprylate/Caprate, Propylheptyl Caprylate, Trehalose, Sodium Polyacrylate, Bisabolol, Glycyrrhetinic acid, Allantoin, Hexamidine Diisethionate, Biosaccharide gum-1, Lactic Acid, Tocopherol, Glycine Soja Oil, Tocopheryl Acetate, Maltodextrin, Parfum, Dehydroacetic Acid, Benzyl Alcohol.</p>
+            <p style="font-size:13.5px">Składy produktów mogą się nieznacznie zmieniać. Aktualny skład znajdziesz zawsze na opakowaniu.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Certyfikaty i ostrzeżenia</summary>
+          <div class="body">
+            <p>Testowany dermatologicznie pod kątem bezpieczeństwa dla skóry. Nie był testowany na zwierzętach na żadnym etapie produkcji.</p>
+            <p>Nie spożywać — w razie połknięcia natychmiast skontaktować się z lekarzem. Unikać kontaktu z oczami. Produkt do użytku zewnętrznego. Utylizować zgodnie z lokalnymi przepisami dotyczącymi odpadów.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Producent i osoba odpowiedzialna w UE</summary>
+          <div class="body">
+            <p>Nacomi Group Sp. z o.o., ul. Ziołowa 29, 43-365 Wilkowice, Polska. Kontakt: biuro@nacomigroup.pl</p>
+            <p>Ten sam podmiot pełni funkcję osoby odpowiedzialnej na terenie Unii Europejskiej.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec field">
+    <div class="wrap">
+      <span class="eyebrow">pełna rutyna</span>
+      <h2>uzupełnij pielęgnację cery trądzikowej</h2>
+      <p class="intro">Produkty, które współpracują z tym kremem — w kolejności stosowania.</p>
+      <div class="rel">
+        <article class="card">
+          <span class="step">Krok 1 · Mycie</span>
+          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_1776_2000_2000/Ethic-Care-Skin-Balance-zel-do-mycia-twarzy-100ml_2.webp" alt="Żel do mycia twarzy Skin Balance 100 ml"></div>
+          <h3><a href="https://nacomi-shop.pl/pl/p/Ethic-Care-Skin-Balance-Zel-do-mycia-twarzy-100ml/1325">Skin Balance — żel do mycia twarzy</a></h3>
+          <span class="price-s">30,00 zł</span>
+          <button class="add" type="button">Do koszyka</button>
+        </article>
+        <article class="card">
+          <span class="step">Krok 2 · Tonizacja</span>
+          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2193_2000_2000/Tonik-mleczny-do-twarzy-nawilzajacy-100ml.webp" alt="Tonik mleczny nawilżający 100 ml"></div>
+          <h3><a href="https://nacomi-shop.pl/pl/p/Tonik-mleczny-do-twarzy-nawilzajacy-100ml/1046">Tonik mleczny nawilżający</a></h3>
+          <span class="price-s">30,00 zł</span>
+          <button class="add" type="button">Do koszyka</button>
+        </article>
+        <article class="card this">
+          <span class="step">Krok 3 · Ten produkt</span>
+          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp" alt="Lekki krem do cery trądzikowej 50 ml"></div>
+          <h3>Lekki krem do cery trądzikowej</h3>
+          <span class="price-s">42,00 zł</span>
+          <button class="add" type="button">W koszyku ✓</button>
+        </article>
+        <article class="card">
+          <span class="step">Krok 4 · Punktowo</span>
+          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2157_2000_2000/Punktowy-krem-przeciwdzialajacy-niedoskonaloscia-30ml-5902539717570.webp" alt="Punktowy krem na niedoskonałości 30 ml"></div>
+          <h3><a href="https://nacomi-shop.pl/pl/p/Nacomi-Next-Lvl-Dermo-Punktowy-krem-przeciwdzialajacy-niedoskonalosciom-30-ml/1089">Punktowy krem na niedoskonałości</a></h3>
+          <span class="price-s">30,00 zł</span>
+          <button class="add" type="button">Do koszyka</button>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="sticky-buy">
+  <span class="p">42,00 zł</span>
+  <button type="button">Dodaj do koszyka</button>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h2>Nacomi</h2><p style="color:#C4B2BA;max-width:30ch">Polskie kosmetyki naturalne produkowane w Wilkowicach od 2012 roku.</p></div>
+      <div><h2>Zakupy</h2><ul>
+        <li><a href="https://nacomi-shop.pl/pl/i/Czas-i-koszty-dostawy/4">Dostawa</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Formy-platnosci/10">Płatności</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Zwroty-i-reklamacje/7">Zwroty</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Kontakt/9">Kontakt</a></li>
+      </ul></div>
+      <div><h2>Formalności</h2><ul>
+        <li><a href="https://nacomi-shop.pl/pl/i/Regulamin-AKTUALNY/28">Regulamin</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Polityka-prywatnosci-RODO/11">Prywatność</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Pliki-cookies/16">Cookies</a></li>
+        <li><a href="https://nacomi-shop.pl/pl/i/Projekty-UE/14">Projekty UE</a></li>
+      </ul></div>
+      <div><h2>Więcej</h2><ul>
+        <li><a href="https://nacomi-shop.pl/pl/n/list">Blog</a></li>
+        <li><a href="https://skintalk.pl/">Zapytaj eksperta</a></li>
+        <li><a href="https://www.nacomigroup.pl">Współpraca B2B</a></li>
+      </ul></div>
+    </div>
+    <div class="legal">Nacomi Group Sp. z o.o., ul. Ziołowa 29, 43-365 Wilkowice · NIP 5532518964</div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ══════════ PRZED ══════════ -->
+<div id="before">
+  <div class="audit-note"><div class="wrap"><strong>Widok „przed"</strong> — audyt karty produktu na nacomi-shop.pl.</div></div>
+  <section class="audit">
+    <div class="wrap">
+
+      <div class="attr">
+        <h3>Sekcja „Cechy produktu" — tak wyświetla się dziś</h3>
+        <div class="sub">Karta kremu przeciwtrądzikowego, dół strony. Wartości skopiowane bez zmian.</div>
+        <div class="row"><span>Redukcja niedoskonałości</span><span class="no">nie</span></div>
+        <div class="row"><span>Regulacja przetłuszczenia</span><span class="no">nie</span></div>
+        <div class="row"><span>Redukcja zaczerwienień</span><span class="no">nie</span></div>
+        <div class="row"><span>Redukcja przebarwień</span><span class="no">nie</span></div>
+        <div class="row"><span>Nawilżenie</span><span class="no">nie</span></div>
+        <div class="row"><span>Ukojenie</span><span class="no">nie</span></div>
+        <div class="row"><span>Oczyszczanie</span><span class="no">nie</span></div>
+        <div class="row"><span>Regeneracja</span><span class="no">nie</span></div>
+        <div class="row"><span>Złuszczenie · Anti-aging · Rozświetlenie · Cienie pod oczami</span><span class="no">nie</span></div>
+        <div class="flag">
+          <b>Opis tego samego produktu, dwa ekrany wyżej:</b> „wspomaga redukcję niedoskonałości oraz normalizuje wydzielanie sebum", „dogłębnie nawilża", „łagodzi podrażnienia".<br><br>
+          <b>Konsekwencja szersza niż jedna karta:</b> te atrybuty najprawdopodobniej zasilają filtrowanie w Shoperze. Puste filtry na liście kategorii i te „nie” to ten sam problem — brakujące dane produktowe, nie wada oprogramowania.
+        </div>
+      </div>
+
+      <h2 style="font-family:var(--f-disp);font-weight:300;font-size:26px;letter-spacing:-.02em;margin-top:40px">Kolejność sekcji na karcie</h2>
+      <ol class="flow">
+        <li><span class="num">01</span><span class="body"><b>Zdjęcie — jedno</b><span>Brak galerii, tekstury, tyłu opakowania</span></span></li>
+        <li><span class="num">02</span><span class="body"><b>Nazwa, skrócony opis, cena, koszyk</b><span>Widoczne też „Promocja trwa do %s”</span></span><span class="mark">Placeholder</span></li>
+        <li class="bad"><span class="num">03</span><span class="body"><b>Bestsellery — 15 obcych produktów</b><span>Wstawione między przycisk zakupu a opis produktu</span></span><span class="mark">Wyprowadza</span></li>
+        <li><span class="num">04</span><span class="body"><b>Opis</b><span>Cztery akapity o składnikach zlepione w ścianę tekstu</span></span></li>
+        <li><span class="num">05</span><span class="body"><b>Stosowanie, typ skóry, uwagi, INCI</b><span>Wszystko rozwinięte, bez hierarchii</span></span></li>
+        <li><span class="num">06</span><span class="body"><b>Bezpieczeństwo i producent</b></span></li>
+        <li class="bad"><span class="num">07</span><span class="body"><b>Nowości — 16 obcych produktów</b><span>Razem z sekcją 03 daje 31 linków wyprowadzających</span></span><span class="mark">Wyprowadza</span></li>
+        <li class="bad"><span class="num">08</span><span class="body"><b>Cechy produktu — dwanaście razy „nie”</b></span><span class="mark">Zaprzecza opisowi</span></li>
+      </ol>
+
+      <div class="issues" style="margin-top:44px">
+        <h2>co dokładnie nie działa</h2>
+        <ol>
+          <li><b>Atrybuty produktu zaprzeczają opisowi</b>Dwanaście cech ustawionych na „nie”, w tym „redukcja niedoskonałości” na kremie przeciwtrądzikowym. Te same puste pola tłumaczą, dlaczego filtry w kategoriach nie mają czym filtrować.</li>
+          <li><b>31 obcych produktów na karcie jednego</b>Piętnaście „Bestsellerów” wstawiono między przycisk zakupu a opis. Klient szukający informacji o produkcie dostaje piętnaście powodów, żeby go opuścić.</li>
+          <li><b>Widoczny placeholder szablonu</b>Na stronie wyświetla się „Promocja trwa do %s” — niewypełniona zmienna pokazana klientowi.</li>
+          <li><b>Trzy różne czasy wysyłki</b>„1–2 dni” na karcie, „Shipment in 24h” na liście kategorii, 2–5 dni w regulaminie. Klient nie wie, w co wierzyć.</li>
+          <li><b>Jedno zdjęcie, zero opinii</b>Przy kosmetyku, gdzie konsystencja jest kluczowym kryterium, jest jedno zdjęcie opakowania. Ocen i recenzji brak w ogóle.</li>
+          <li><b>Dwa adresy tego samego produktu</b>Pełny i skrócony slug, oba z ID 1093, oba w indeksie Google. Okruszki prowadzą do „NACOMI Next Lvl”, choć klient przyszedł z „Kremy do twarzy”.</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var img=document.getElementById('gal-img');
+  document.querySelectorAll('.thumb').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.thumb').forEach(function(x){x.setAttribute('aria-current','false')});
+      t.setAttribute('aria-current','true');
+      img.style.opacity=0;
+      setTimeout(function(){img.src=t.dataset.src;img.style.opacity=1},140);
+    });
+  });
+  var n=1,el=document.getElementById('qty');
+  document.getElementById('plus').onclick=function(){if(n<9){n++;el.textContent=n}};
+  document.getElementById('minus').onclick=function(){if(n>1){n--;el.textContent=n}};
+  var b=document.getElementById('btn-before'),a=document.getElementById('btn-after');
+  function set(s){document.body.classList.toggle('show-before',s);b.setAttribute('aria-pressed',String(s));a.setAttribute('aria-pressed',String(!s));window.scrollTo(0,0)}
+  b.onclick=function(){set(true)};a.onclick=function(){set(false)};
+})();
+</script>
+
+</body>
+</html>
