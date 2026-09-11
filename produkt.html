@@ -108,10 +108,10 @@ button,input,select{font:inherit}
 .sec{padding:60px 0}
 .sec.field{background:#F0C0D0;border-top:0}
 .sec.field .intro{color:#4A343D}
-.sec.field .card{background:#FBF2F5;border-color:#E3A9C1}
-.sec.field .card.this{border-color:var(--rose);border-width:2px}
-.sec.field .card .step{color:#6B4152}
-.sec.field .card.this .step{color:var(--rose)}
+.sec.field 
+.sec.field 
+.sec.field .card 
+.sec.field .card.this 
 .sec.field .add{border-color:var(--rose);color:var(--rose)}
 .sec.field .add:hover{background:var(--rose);color:#fff}
 .sec h2{font-family:var(--f-disp);font-weight:300;font-size:clamp(24px,3vw,32px);letter-spacing:-.03em;line-height:1.12}
@@ -146,18 +146,10 @@ details .body{padding-top:14px;font-size:15px;color:var(--ink-soft);max-width:78
 details .body p+p{margin-top:12px}
 .inci-list{font-size:14px;line-height:1.7;word-spacing:.05em}
 
-.rel{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
-.card{background:var(--swbg,#FDF8FA);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;position:relative}
-.card:hover{border-color:var(--ink-soft);transform:translateY(-2px)}
-.card.this{border-color:var(--rose);border-width:2px}
-.card .step{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px}
-.card.this .step{color:var(--rose)}
-.card-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px;margin-bottom:12px}
-.card-img img{width:100%;height:100%;object-fit:contain}
-.card h3{font-size:15px;font-weight:500;line-height:1.32;margin-bottom:6px}
-.card .price-s{margin-top:auto;font-weight:600;font-size:16.5px;padding-top:8px}
-.card .add{margin-top:10px;width:100%;padding:9px;border-radius:999px;cursor:pointer;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:13.5px;font-weight:600;transition:background .2s,color .2s}
-.card .add:hover{background:var(--ink);color:var(--paper)}
+.card 
+.card.this 
+
+.card 
 
 .foot{background:var(--ink);color:var(--paper);padding:40px 0 28px;font-size:14.5px}
 .foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
@@ -199,6 +191,58 @@ body.show-before #before{display:block}
 .issues li b{display:block;margin-bottom:4px}
 .issues h2{font-family:var(--f-disp);font-weight:300;font-size:30px;letter-spacing:-.02em}
 
+/* ══════════════════════════════════════════════════════════
+   SKŁADNIKI — zwijane
+   Nazwa + rola w jednej linii, żeby dało się przeskanować
+   sześć składników jednym spojrzeniem. Szczegóły dla tych,
+   którzy naprawdę chcą je przeczytać.
+   ══════════════════════════════════════════════════════════ */
+.act{background:var(--paper);border-radius:var(--r);box-shadow:var(--lift-1);overflow:hidden}
+.act summary{display:flex;align-items:center;gap:12px;cursor:pointer;list-style:none;
+  padding:15px 17px;min-height:56px}
+.act summary::-webkit-details-marker{display:none}
+.act .a-name{font-weight:600;font-size:15.5px;flex:none}
+.act .a-role{font-size:13.5px;color:var(--ink-soft);flex:1 1 auto;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.act .a-chev{flex:none;font-size:18px;color:var(--ink-soft);
+  transition:transform .2s ease;transform:rotate(90deg)}
+.act[open] .a-chev{transform:rotate(-90deg)}
+.act .inci{padding:0 17px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.act p{padding:7px 17px 16px;font-size:14.5px;line-height:1.55}
+
+/* ══════════════════════════════════════════════════════════
+   RUTYNA — stepper
+   Cztery kroki widoczne naraz, bieżący wyróżniony. Klient
+   od razu lokalizuje się w procesie i widzi, czego brakuje.
+   ══════════════════════════════════════════════════════════ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative;margin-bottom:18px}
+.steps::before{content:"";position:absolute;top:38px;left:12%;right:12%;height:2px;
+  background:var(--line);z-index:0}
+.stp{position:relative;z-index:1}
+.stp > a,.stp > .s-inner{display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:5px;padding:10px 8px 14px;border-radius:var(--r);text-decoration:none;color:inherit;
+  background:var(--paper);box-shadow:var(--lift-1);height:100%;
+  transition:transform .2s ease,box-shadow .2s ease}
+.stp > a:hover{transform:translateY(-3px);box-shadow:var(--lift-2)}
+.s-thumb{width:76px;height:76px;flex:none;border-radius:50%;overflow:hidden;background:var(--surface);
+  border:2px solid var(--paper);box-shadow:0 0 0 2px var(--line)}
+.s-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.s-no{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+.s-what{font-size:13px;font-weight:600}
+.s-name{font-size:13px;line-height:1.35;color:var(--ink-soft)}
+.s-price{font-size:14px;font-weight:600;margin-top:auto;padding-top:4px}
+.stp.now > .s-inner{background:var(--sand);box-shadow:0 0 0 2px var(--rose)}
+.stp.now .s-thumb{box-shadow:0 0 0 2px var(--rose)}
+.stp.now .s-what{color:var(--rose)}
+
+.bundle{display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:16px 20px;background:var(--paper);border-radius:var(--r);box-shadow:var(--lift-1)}
+.b-txt{display:flex;flex-direction:column;gap:2px;flex:1 1 auto;min-width:0}
+.b-txt b{font-size:16px}
+.b-txt span{font-size:14px;color:var(--ink-soft)}
+.b-add{flex:none;min-height:50px;padding:0 26px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--ink);color:var(--paper);font-size:15px;font-weight:600}
+.b-add:hover{background:var(--rose)}
 
 /* ══════════════════════════════════════════════════════════
    OPINIE
@@ -217,33 +261,36 @@ body.show-before #before{display:block}
 .rating a.cnt{text-decoration:underline;text-underline-offset:3px}
 .rating a.cnt:hover{color:var(--rose)}
 
-.rev-top{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;
-  padding:22px 24px;background:var(--paper);border-radius:var(--r);box-shadow:var(--lift-1);margin-bottom:22px}
-.rev-score{text-align:center;flex:none}
-.rev-score .big{font-family:var(--f-disp);font-weight:300;font-size:46px;line-height:1;letter-spacing:-.03em}
-.rev-score .of{font-size:13px;color:var(--ink-soft);margin-top:4px}
-.rev-bars{display:grid;gap:6px;min-width:0}
-.rev-row{display:grid;grid-template-columns:52px 1fr 34px;align-items:center;gap:12px;font-size:13.5px;color:var(--ink-soft)}
-.rev-track{height:7px;border-radius:999px;background:var(--surface);overflow:hidden}
-.rev-fill{height:100%;background:var(--rose);border-radius:999px}
-.rev-row .n{text-align:right}
+.rev-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.rev-head .avg{display:flex;align-items:center;gap:9px}
+.rev-head .big{font-family:var(--f-disp);font-weight:400;font-size:27px;line-height:1;letter-spacing:-.02em}
+.rev-head .of{font-size:14px;color:var(--ink-soft)}
+.rev-nav{margin-left:auto;display:flex;gap:8px}
+.rev-nav button{width:42px;height:42px;flex:none;cursor:pointer;border:1px solid var(--line);
+  border-radius:50%;background:var(--paper);color:var(--ink);font-size:16px;line-height:1;
+  transition:border-color .2s,background .2s}
+.rev-nav button:hover:not(:disabled){border-color:var(--ink);background:var(--surface)}
+.rev-nav button:disabled{opacity:.35;cursor:default}
 
-.rev-sort{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--ink-soft);margin-bottom:16px}
-.rev-sort select{padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:14.5px;cursor:pointer;min-height:44px}
-
-.rev-list{display:grid;gap:12px}
-.rev{background:var(--paper);border-radius:var(--r);padding:18px 20px;box-shadow:var(--lift-1)}
-.rev-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.rev-meta .who{font-weight:600;font-size:15px}
-.rev-ver{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
-  color:var(--sage);background:rgba(56,121,107,.1);padding:3px 9px;border-radius:999px}
-.rev-date{margin-left:auto;font-size:13px;color:var(--ink-soft)}
-.rev p{font-size:15.5px;line-height:1.55}
-.rev .skin{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--ink-soft);
-  border:1px solid var(--line);padding:3px 10px;border-radius:999px}
-.rev-more{margin-top:18px;width:100%;min-height:50px;border:1px solid var(--ink);border-radius:999px;
-  background:transparent;color:var(--ink);font-size:15px;font-weight:600;cursor:pointer}
-.rev-more:hover{background:var(--ink);color:var(--paper)}
+/* slider: przewijanie palcem, karty przyklejają się do krawędzi */
+.rev-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  padding:2px 0 6px;margin:0 -4px;padding-left:4px;padding-right:4px}
+.rev-rail::-webkit-scrollbar{display:none}
+.rev{flex:0 0 300px;scroll-snap-align:start;background:var(--paper);
+  border-radius:var(--r);padding:16px 17px;box-shadow:var(--lift-1);display:flex;flex-direction:column}
+.rev-meta{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.rev-meta .who{font-weight:600;font-size:14.5px}
+.rev-ver{font-size:11.5px;font-weight:600;color:var(--sage);
+  background:rgba(56,121,107,.1);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.rev .stars svg{width:14px;height:14px}
+.rev p{font-size:14.5px;line-height:1.5;margin-top:8px;
+  display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.rev .skin{margin-top:auto;padding-top:11px;font-size:12px;color:var(--ink-soft)}
+.rev-all{display:inline-block;margin-top:14px;font-size:14.5px;font-weight:600;
+  color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer;
+  background:none;border:0;padding:8px 0;min-height:44px}
+.rev-all:hover{color:var(--rose)}
 
 /* ── GŁĘBIA ──────────────────────────────────────────────────
    Cień dostaje tylko to, co dałoby się podnieść: karty, panele,
@@ -270,10 +317,7 @@ body.show-before #before{display:block}
   .gal{position:static}
   .acts{grid-template-columns:1fr}
   .two{grid-template-columns:1fr;gap:32px}
-  .rel{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .rev-top{grid-template-columns:1fr;gap:20px;text-align:center}
-  .rev-bars{text-align:left}
 }
 
 @media (max-width:640px){
@@ -326,19 +370,39 @@ body.show-before #before{display:block}
   .sec{padding:36px 0}
   .sec h2{font-size:24px}
   .intro{font-size:15.5px}
-  .acts,.rel{grid-template-columns:1fr}
-  .act{padding:16px}
+  .acts{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
 
-  /* opinie */
-  .rev-score .big{font-size:40px}
-  .rev-row{grid-template-columns:46px 1fr 28px;gap:9px;font-size:13px}
-  .rev{padding:16px}
-  .rev p{font-size:15px}
-  .rev-meta{gap:8px}
-  .rev-date{flex-basis:100%;margin-left:0;order:9}
-  .rev-sort{flex-wrap:wrap}
-  .rev-sort select{flex:1}
+/* składniki: lista zwinięta = 6 pozycji na jednym ekranie */
+  .acts{gap:8px}
+  .act summary{padding:13px 15px;min-height:52px;gap:10px}
+  .act .a-name{font-size:15px}
+  .act .a-role{font-size:13px}
+  .act p{font-size:14.5px;padding:6px 15px 14px}
+
+  /* rutyna: cztery kroki nadal w jednym rzędzie, tylko ciaśniej */
+  .steps{grid-template-columns:repeat(4,1fr);gap:6px;margin:0 -4px 16px}
+  .steps::before{top:30px;left:14%;right:14%}
+  .stp > a,.stp > .s-inner{padding:8px 4px 11px;gap:3px;border-radius:12px}
+  .s-thumb{width:54px;height:54px}
+  .s-no{font-size:10px;letter-spacing:.06em;margin-top:2px}
+  .s-what{font-size:11.5px}
+  .s-name{display:none}                     /* nazwa niepotrzebna przy miniaturze */
+  .s-price{font-size:12.5px;padding-top:2px}
+  .bundle{padding:14px 16px;gap:12px}
+  .b-txt b{font-size:15px}
+  .b-txt span{font-size:13.5px}
+  .b-add{flex:1 1 100%;padding:0 18px}
+
+  /* opinie — slider wychodzi poza margines, skrawek kolejnej karty
+     sygnalizuje "jest tego więcej, przesuń" */
+  .rev-head{gap:10px;margin-bottom:14px}
+  .rev-head .big{font-size:24px}
+  .rev-nav{display:none}                      /* na dotyku przewija się palcem */
+  .rev-rail{margin:0 -18px;padding-left:18px;padding-right:18px;gap:10px;
+    scroll-padding-left:18px}
+  .rev{flex:0 0 80%;max-width:290px;padding:15px}
+  .rev p{font-size:14.5px;-webkit-line-clamp:6}
 
   /* pasek zakupu przyklejony na dole — decyzja zawsze pod kciukiem */
   .sticky-buy{
@@ -476,12 +540,30 @@ body.show-before #before{display:block}
       <h2>pięć składników aktywnych</h2>
       <p class="intro">Formuła oparta na składnikach o udokumentowanym działaniu przeciwtrądzikowym i łagodzącym.</p>
       <div class="acts">
-        <div class="act"><h3>Niacynamid</h3><div class="inci">Niacinamide</div><p>Reguluje produkcję sebum i normalizuje rogowacenie naskórka. Przyspiesza gojenie stanów zapalnych, wyrównuje koloryt i rozjaśnia przebarwienia.</p></div>
-        <div class="act"><h3>Kwas glicyretynowy</h3><div class="inci">Glycyrrhetinic acid</div><p>Łagodzi podrażnienia i stany zapalne, ogranicza nadmierne wydzielanie sebum. Hamuje powstawanie przebarwień dzięki właściwościom depigmentacyjnym.</p></div>
-        <div class="act"><h3>Bisabolol</h3><div class="inci">Bisabolol</div><p>Pozyskiwany z kwiatów rumianku. Zwiększa przenikanie pozostałych składników przez warstwę rogową, działa przeciwbakteryjnie i łagodząco.</p></div>
-        <div class="act"><h3>Trehaloza</h3><div class="inci">Trehalose</div><p>Jeden z najskuteczniejszych składników nawilżających. Nawilża bez obciążania skóry, łagodzi podrażnienia i wygładza drobne zmarszczki.</p></div>
-        <div class="act"><h3>Alantoina</h3><div class="inci">Allantoin</div><p>Wspomaga regenerację, łagodzi zaczerwienienia, zmniejsza pieczenie i świąd. Zmiękcza skórę i działa antyoksydacyjnie.</p></div>
-        <div class="act"><h3>Elestab™</h3><div class="inci">Hexamidine Diisethionate</div><p>Kompleks konserwująco-aktywny. W połączeniu z bisabololem działa przeciwbakteryjnie, przyspieszając eliminację zmian skórnych.</p></div>
+        <details class="act">
+          <summary><span class="a-name">Niacynamid</span><span class="a-role">reguluje sebum</span><span class="a-chev" aria-hidden="true">›</span></summary>
+          <div class="inci">Niacinamide</div><p>Reguluje produkcję sebum i normalizuje rogowacenie naskórka. Przyspiesza gojenie stanów zapalnych, wyrównuje koloryt i rozjaśnia przebarwienia.</p>
+        </details>
+        <details class="act">
+          <summary><span class="a-name">Kwas glicyretynowy</span><span class="a-role">łagodzi stany zapalne</span><span class="a-chev" aria-hidden="true">›</span></summary>
+          <div class="inci">Glycyrrhetinic acid</div><p>Łagodzi podrażnienia i stany zapalne, ogranicza nadmierne wydzielanie sebum. Hamuje powstawanie przebarwień dzięki właściwościom depigmentacyjnym.</p>
+        </details>
+        <details class="act">
+          <summary><span class="a-name">Bisabolol</span><span class="a-role">działa przeciwbakteryjnie</span><span class="a-chev" aria-hidden="true">›</span></summary>
+          <div class="inci">Bisabolol</div><p>Pozyskiwany z kwiatów rumianku. Zwiększa przenikanie pozostałych składników przez warstwę rogową, działa przeciwbakteryjnie i łagodząco.</p>
+        </details>
+        <details class="act">
+          <summary><span class="a-name">Trehaloza</span><span class="a-role">nawilża</span><span class="a-chev" aria-hidden="true">›</span></summary>
+          <div class="inci">Trehalose</div><p>Jeden z najskuteczniejszych składników nawilżających. Nawilża bez obciążania skóry, łagodzi podrażnienia i wygładza drobne zmarszczki.</p>
+        </details>
+        <details class="act">
+          <summary><span class="a-name">Alantoina</span><span class="a-role">regeneruje</span><span class="a-chev" aria-hidden="true">›</span></summary>
+          <div class="inci">Allantoin</div><p>Wspomaga regenerację, łagodzi zaczerwienienia, zmniejsza pieczenie i świąd. Zmiękcza skórę i działa antyoksydacyjnie.</p>
+        </details>
+        <details class="act">
+          <summary><span class="a-name">Elestab™</span><span class="a-role">wzmacnia działanie</span><span class="a-chev" aria-hidden="true">›</span></summary>
+          <div class="inci">Hexamidine Diisethionate</div><p>Kompleks konserwująco-aktywny. W połączeniu z bisabololem działa przeciwbakteryjnie, przyspieszając eliminację zmian skórnych.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -543,124 +625,112 @@ body.show-before #before{display:block}
     </div>
   </section>
 
+  <section class="sec field" id="rutyna">
+    <div class="wrap">
+      <span class="eyebrow">pełna rutyna</span>
+      <h2>gdzie jesteś w pielęgnacji</h2>
+      <p class="intro">Ten krem to krok trzeci. Zobacz, czego jeszcze potrzebuje cera trądzikowa.</p>
+
+      <ol class="steps">
+        <li class="stp">
+          <a href="https://nacomi-shop.pl/pl/p/Ethic-Care-Skin-Balance-Zel-do-mycia-twarzy-100ml/1325">
+            <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_1776_2000_2000/Ethic-Care-Skin-Balance-zel-do-mycia-twarzy-100ml_2.webp" alt="Żel do mycia twarzy Skin Balance"></span>
+            <span class="s-no">Krok 1</span>
+            <span class="s-what">Mycie</span>
+            <span class="s-name">Skin Balance — żel do mycia</span>
+            <span class="s-price">30,00 zł</span>
+          </a>
+        </li>
+        <li class="stp">
+          <a href="https://nacomi-shop.pl/pl/p/Tonik-mleczny-do-twarzy-nawilzajacy-100ml/1046">
+            <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2193_2000_2000/Tonik-mleczny-do-twarzy-nawilzajacy-100ml.webp" alt="Tonik mleczny nawilżający"></span>
+            <span class="s-no">Krok 2</span>
+            <span class="s-what">Tonizacja</span>
+            <span class="s-name">Tonik mleczny nawilżający</span>
+            <span class="s-price">30,00 zł</span>
+          </a>
+        </li>
+        <li class="stp now" aria-current="step">
+          <span class="s-inner">
+            <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp" alt="Lekki krem do cery trądzikowej"></span>
+            <span class="s-no">Krok 3</span>
+            <span class="s-what">Tu jesteś</span>
+            <span class="s-name">Lekki krem do cery trądzikowej</span>
+            <span class="s-price">42,00 zł</span>
+          </span>
+        </li>
+        <li class="stp">
+          <a href="https://nacomi-shop.pl/pl/p/Nacomi-Next-Lvl-Dermo-Punktowy-krem-przeciwdzialajacy-niedoskonalosciom-30-ml/1089">
+            <span class="s-thumb"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2157_2000_2000/Punktowy-krem-przeciwdzialajacy-niedoskonaloscia-30ml-5902539717570.webp" alt="Punktowy krem na niedoskonałości"></span>
+            <span class="s-no">Krok 4</span>
+            <span class="s-what">Punktowo</span>
+            <span class="s-name">Punktowy krem na niedoskonałości</span>
+            <span class="s-price">30,00 zł</span>
+          </a>
+        </li>
+      </ol>
+
+      <div class="bundle">
+        <div class="b-txt"><b>Skompletuj rutynę</b><span>Pozostałe trzy kroki — 90,00 zł</span></div>
+        <button class="b-add" type="button">Dodaj brakujące 3</button>
+      </div>
+    </div>
+  </section>
 
   <section class="sec" id="opinie">
     <div class="wrap">
       <span class="eyebrow">Co mówią kupujący</span>
-      <h2>38 opinii o tym kremie</h2>
-      <p class="intro">Opinie zbierane od klientów, którzy kupili produkt w naszym sklepie. Publikujemy wszystkie, także krytyczne.</p>
+      <h2>opinie</h2>
 
-      <div class="rev-top">
-        <div class="rev-score">
-          <div class="big">4,7</div>
-          <span class="stars" role="img" aria-label="Średnia ocena 4,7 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><defs><linearGradient id="hg2"><stop offset="80%" stop-color="#9A4560"/><stop offset="80%" stop-color="#E7D3DA"/></linearGradient></defs><polygon fill="url(#hg2)" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
-          <div class="of">na podstawie 38 opinii</div>
+      <div class="rev-head">
+        <div class="avg">
+          <span class="big">4,7</span>
+          <span class="stars" role="img" aria-label="Średnia ocena 4,7 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><defs><linearGradient id="hg2"><stop offset="70%" stop-color="#9A4560"/><stop offset="70%" stop-color="#E7D3DA"/></linearGradient></defs><polygon fill="url(#hg2)" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <span class="of">38 opinii</span>
         </div>
-        <div class="rev-bars">
-          <div class="rev-row"><span>5 gwiazd</span><span class="rev-track"><span class="rev-fill" style="width:74%"></span></span><span class="n">28</span></div>
-          <div class="rev-row"><span>4 gwiazdki</span><span class="rev-track"><span class="rev-fill" style="width:18%"></span></span><span class="n">7</span></div>
-          <div class="rev-row"><span>3 gwiazdki</span><span class="rev-track"><span class="rev-fill" style="width:5%"></span></span><span class="n">2</span></div>
-          <div class="rev-row"><span>2 gwiazdki</span><span class="rev-track"><span class="rev-fill" style="width:3%"></span></span><span class="n">1</span></div>
-          <div class="rev-row"><span>1 gwiazdka</span><span class="rev-track"><span class="rev-fill" style="width:0%"></span></span><span class="n">0</span></div>
+        <div class="rev-nav">
+          <button type="button" id="revPrev" aria-label="Poprzednie opinie">‹</button>
+          <button type="button" id="revNext" aria-label="Następne opinie">›</button>
         </div>
       </div>
 
-      <div class="rev-sort">
-        <label for="rev-sort">Pokaż najpierw</label>
-        <select id="rev-sort">
-          <option value="helpful">Najbardziej pomocne</option>
-          <option value="new">Najnowsze</option>
-          <option value="low">Najniższe oceny</option>
-        </select>
-      </div>
-
-      <div class="rev-list">
+      <div class="rev-rail" id="revRail" tabindex="0" role="group" aria-label="Opinie klientów, przewijane w poziomie">
         <article class="rev">
-          <div class="rev-meta">
-            <span class="who">Marta K.</span>
-            <span class="rev-ver">✓ zakup potwierdzony</span>
-            <span class="rev-date">12.02.2026</span>
-          </div>
-          <span class="stars" role="img" aria-label="5 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
-          <p>Używam od dwóch miesięcy i skóra faktycznie się uspokoiła. Nie wysusza, nie piecze, wchłania się od razu — mogę nakładać makijaż bez czekania. Zaskórniki na brodzie wyraźnie mniejsze.</p>
-          <span class="skin">cera trądzikowa, tłusta</span>
+          <div class="rev-meta"><span class="who">Marta K.</span><span class="rev-ver">✓ zakup potwierdzony</span></div>
+          <span class="stars" role="img" aria-label="Ocena 5 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>Używam od dwóch miesięcy i skóra faktycznie się uspokoiła. Nie wysusza, nie piecze, wchłania się od razu — mogę nakładać makijaż bez czekania.</p>
+          <span class="skin">cera trądzikowa · 2 miesiące używania</span>
         </article>
-
         <article class="rev">
-          <div class="rev-meta">
-            <span class="who">Aleksandra W.</span>
-            <span class="rev-ver">✓ zakup potwierdzony</span>
-            <span class="rev-date">28.01.2026</span>
-          </div>
-          <span class="stars" role="img" aria-label="5 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
-          <p>Szukałam czegoś lekkiego pod filtr i to jest strzał w dziesiątkę. Konsystencja wodnista, zero lepienia się. Po tygodniu mniej zaczerwienień wokół nosa.</p>
+          <div class="rev-meta"><span class="who">Aleksandra W.</span><span class="rev-ver">✓ zakup potwierdzony</span></div>
+          <span class="stars" role="img" aria-label="Ocena 5 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>Szukałam czegoś lekkiego pod filtr i to strzał w dziesiątkę. Konsystencja wodnista, zero lepienia. Po tygodniu mniej zaczerwienień wokół nosa.</p>
           <span class="skin">cera mieszana, wrażliwa</span>
         </article>
-
         <article class="rev">
-          <div class="rev-meta">
-            <span class="who">Joanna P.</span>
-            <span class="rev-ver">✓ zakup potwierdzony</span>
-            <span class="rev-date">15.01.2026</span>
-          </div>
-          <span class="stars" role="img" aria-label="4 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <div class="rev-meta"><span class="who">Joanna P.</span><span class="rev-ver">✓ zakup potwierdzony</span></div>
+          <span class="stars" role="img" aria-label="Ocena 4 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
           <p>Dobry krem, skóra spokojniejsza. Minus za opakowanie — słoiczek zamiast pompki, przy takiej formule wolałabym higieniczniejsze rozwiązanie.</p>
           <span class="skin">cera trądzikowa</span>
         </article>
-
         <article class="rev">
-          <div class="rev-meta">
-            <span class="who">Karolina M.</span>
-            <span class="rev-ver">✓ zakup potwierdzony</span>
-            <span class="rev-date">03.01.2026</span>
-          </div>
-          <span class="stars" role="img" aria-label="3 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
-          <p>U mnie bez rewolucji. Nie podrażnia, nawilża przyzwoicie, ale po sześciu tygodniach nie widzę różnicy w niedoskonałościach. Może potrzebuję mocniejszego działania.</p>
+          <div class="rev-meta"><span class="who">Karolina M.</span><span class="rev-ver">✓ zakup potwierdzony</span></div>
+          <span class="stars" role="img" aria-label="Ocena 3 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>U mnie bez rewolucji. Nie podrażnia, nawilża przyzwoicie, ale po sześciu tygodniach nie widzę różnicy w niedoskonałościach.</p>
           <span class="skin">cera tłusta</span>
         </article>
+        <article class="rev">
+          <div class="rev-meta"><span class="who">Natalia B.</span><span class="rev-ver">✓ zakup potwierdzony</span></div>
+          <span class="stars" role="img" aria-label="Ocena 5 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>Trzecie opakowanie. Jedyny krem, po którym nie mam wieczornego świecenia strefy T. Wystarcza na jakieś dwa miesiące.</p>
+          <span class="skin">cera tłusta · stały zakup</span>
+        </article>
       </div>
 
-      <button class="rev-more" type="button">Pokaż kolejne 34 opinie</button>
+      <button class="rev-all" type="button">Zobacz wszystkie 38 opinii</button>
     </div>
   </section>
 
-  <section class="sec field">
-    <div class="wrap">
-      <span class="eyebrow">pełna rutyna</span>
-      <h2>uzupełnij pielęgnację cery trądzikowej</h2>
-      <p class="intro">Produkty, które współpracują z tym kremem — w kolejności stosowania.</p>
-      <div class="rel">
-        <article class="card">
-          <span class="step">Krok 1 · Mycie</span>
-          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_1776_2000_2000/Ethic-Care-Skin-Balance-zel-do-mycia-twarzy-100ml_2.webp" alt="Żel do mycia twarzy Skin Balance 100 ml"></div>
-          <h3><a href="https://nacomi-shop.pl/pl/p/Ethic-Care-Skin-Balance-Zel-do-mycia-twarzy-100ml/1325">Skin Balance — żel do mycia twarzy</a></h3>
-          <span class="price-s">30,00 zł</span>
-          <button class="add" type="button">Do koszyka</button>
-        </article>
-        <article class="card">
-          <span class="step">Krok 2 · Tonizacja</span>
-          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2193_2000_2000/Tonik-mleczny-do-twarzy-nawilzajacy-100ml.webp" alt="Tonik mleczny nawilżający 100 ml"></div>
-          <h3><a href="https://nacomi-shop.pl/pl/p/Tonik-mleczny-do-twarzy-nawilzajacy-100ml/1046">Tonik mleczny nawilżający</a></h3>
-          <span class="price-s">30,00 zł</span>
-          <button class="add" type="button">Do koszyka</button>
-        </article>
-        <article class="card this">
-          <span class="step">Krok 3 · Ten produkt</span>
-          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2153_2000_2000/Krem-do-cery-tradzikowej-Dermo-50ml-5902539717556.webp" alt="Lekki krem do cery trądzikowej 50 ml"></div>
-          <h3>Lekki krem do cery trądzikowej</h3>
-          <span class="price-s">42,00 zł</span>
-          <button class="add" type="button">W koszyku ✓</button>
-        </article>
-        <article class="card">
-          <span class="step">Krok 4 · Punktowo</span>
-          <div class="card-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2157_2000_2000/Punktowy-krem-przeciwdzialajacy-niedoskonaloscia-30ml-5902539717570.webp" alt="Punktowy krem na niedoskonałości 30 ml"></div>
-          <h3><a href="https://nacomi-shop.pl/pl/p/Nacomi-Next-Lvl-Dermo-Punktowy-krem-przeciwdzialajacy-niedoskonalosciom-30-ml/1089">Punktowy krem na niedoskonałości</a></h3>
-          <span class="price-s">30,00 zł</span>
-          <button class="add" type="button">Do koszyka</button>
-        </article>
-      </div>
-    </div>
-  </section>
 </main>
 
 <div class="sticky-buy">
@@ -739,8 +809,19 @@ body.show-before #before{display:block}
           <li><b>31 obcych produktów na karcie jednego</b>Piętnaście „Bestsellerów” wstawiono między przycisk zakupu a opis. Klient szukający informacji o produkcie dostaje piętnaście powodów, żeby go opuścić.</li>
           <li><b>Widoczny placeholder szablonu</b>Na stronie wyświetla się „Promocja trwa do %s” — niewypełniona zmienna pokazana klientowi.</li>
           <li><b>Trzy różne czasy wysyłki</b>„1–2 dni” na karcie, „Shipment in 24h” na liście kategorii, 2–5 dni w regulaminie. Klient nie wie, w co wierzyć.</li>
-          <li><b>Jedno zdjęcie, zero opinii</b>Przy kosmetyku, gdzie konsystencja jest kluczowym kryterium, jest jedno zdjęcie opakowania. Ocen i recenzji brak w ogóle.</li>
+          <li><b>Jedno zdjęcie, a opinie doklejane skryptem</b>Przy kosmetyku, gdzie konsystencja bywa połową decyzji, jest jedno zdjęcie opakowania. Opinie zbiera TrustMate, ale ładuje je zewnętrzny skrypt: na produktach bez recenzji zostaje puste miejsce dokładnie tam, gdzie oko szuka potwierdzenia, a w kodzie serwera nie ma <code>aggregateRating</code> — więc dla Google i modeli AI ocen nie ma wcale.</li>
+          <li><b>Rekomendacje bez logiki</b>Produkty pod kartą to losowe bestsellery i nowości, nie kolejne kroki pielęgnacji. Klient z cerą trądzikową nie dowiaduje się, czego jeszcze potrzebuje ani gdzie w rutynie znajduje się ten krem.</li>
           <li><b>Dwa adresy tego samego produktu</b>Pełny i skrócony slug, oba z ID 1093, oba w indeksie Google. Okruszki prowadzą do „NACOMI Next Lvl”, choć klient przyszedł z „Kremy do twarzy”.</li>
+        </ol>
+      </div>
+
+      <div class="issues" style="margin-top:44px">
+        <h2>co nie działa na telefonie</h2>
+        <ol>
+          <li><b>Filtry w kategorii bez wersji mobilnej</b>Lista filtrów jest wrzucona nad produkty i trzeba ją przewinąć w całości, zanim zobaczy się pierwszy krem. Nie ma panelu, nie ma przycisku zastosowania, nie widać ile wyników zostanie — a większość ruchu w e-commerce kosmetycznym to telefon.</li>
+          <li><b>31 obcych produktów kosztuje na mobile dwa razy więcej</b>To, co na desktopie jest paskiem karuzeli, na telefonie zamienia się w kilkanaście ekranów przewijania między przyciskiem zakupu a opisem.</li>
+          <li><b>Decyzja zakupowa ucieka poza ekran</b>Po przewinięciu do opisu cena i przycisk „Dodaj do koszyka” znikają. Klient gotowy kupić musi wracać na górę strony.</li>
+          <li><b>Opis jako ściana tekstu</b>Cztery akapity o składnikach bez podziału i bez możliwości zwinięcia. Na ekranie telefonu to kilkanaście przewinięć jednolitego bloku, którego nikt nie czyta.</li>
         </ol>
       </div>
 
@@ -802,28 +883,34 @@ body.show-before #before{display:block}
   });
 })();
 
-/* ── sortowanie opinii ── */
+/* ── slider opinii ── */
 (function(){
-  var sel=document.getElementById('rev-sort');
-  var list=document.querySelector('.rev-list');
-  if(!sel||!list) return;
-  var items=[].slice.call(list.children);
-  function score(el){
-    var lab=el.querySelector('.stars').getAttribute('aria-label')||'';
-    var m=lab.match(/(\d)/); return m?+m[1]:0;
-  }
-  function date(el){
-    var d=(el.querySelector('.rev-date')||{}).textContent||'';
-    var p=d.split('.'); return p.length===3 ? +(p[2]+p[1]+p[0]) : 0;
-  }
-  sel.addEventListener('change',function(){
-    var v=sel.value, out=items.slice();
-    if(v==='new') out.sort(function(a,b){return date(b)-date(a)});
-    if(v==='low') out.sort(function(a,b){return score(a)-score(b)});
-    out.forEach(function(el){list.appendChild(el)});
-  });
-})();
+  var rail=document.getElementById('revRail'),
+      prev=document.getElementById('revPrev'),
+      next=document.getElementById('revNext');
+  if(!rail||!prev||!next) return;
 
+  function step(){
+    var card=rail.querySelector('.rev');
+    return card ? card.getBoundingClientRect().width + 12 : 300;
+  }
+  function sync(){
+    var max=rail.scrollWidth-rail.clientWidth-2;
+    prev.disabled = rail.scrollLeft<=2;
+    next.disabled = rail.scrollLeft>=max;
+  }
+  prev.addEventListener('click',function(){rail.scrollBy({left:-step(),behavior:'smooth'})});
+  next.addEventListener('click',function(){rail.scrollBy({left: step(),behavior:'smooth'})});
+  rail.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync);
+
+  /* klawiatura: strzałki przewijają rail, gdy ma focus */
+  rail.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){e.preventDefault();rail.scrollBy({left:step(),behavior:'smooth'})}
+    if(e.key==='ArrowLeft'){e.preventDefault();rail.scrollBy({left:-step(),behavior:'smooth'})}
+  });
+  sync();
+})();
 </script>
 
 </body>
