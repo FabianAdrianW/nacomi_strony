@@ -7,7 +7,7 @@
 <meta name="description" content="Kremy do twarzy Nacomi: nawilżające, przeciwzmarszczkowe, na cerę trądzikową i atopową oraz z filtrem SPF 30 i 50. Filtruj po problemie skóry i cenie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#2A1F24; --ink-soft:#6B5560; --base:#F4EAED;   /* poziom 0 — dno strony */
@@ -186,29 +186,112 @@ body.show-before #before{display:block}
 .card:hover,.scent-card:hover,.choice:hover,.diag-card:hover{box-shadow:var(--lift-2)}
 .card.lead{box-shadow:var(--lift-2)}
 
+/* ══════════════════════════════════════════════════════════
+   MOBILE — panel filtrów
+   Panel wysuwa się od dołu, bo tam sięga kciuk. Nagłówek
+   i pasek akcji są przyklejone, przewija się tylko środek,
+   więc "Pokaż wyniki" nigdy nie ucieka poza ekran.
+   ══════════════════════════════════════════════════════════ */
+.mfilter{display:none}
+.fbadge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;
+  padding:0 6px;border-radius:999px;background:var(--rose);color:#fff;font-size:12px;font-weight:600;line-height:1}
+.scrim{position:fixed;inset:0;z-index:60;background:rgba(42,31,36,.45);
+  opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+body.filters-open .scrim{opacity:1;visibility:visible}
+.drawer-head,.drawer-foot{display:none}
+
 @media (max-width:980px){
-  .layout{grid-template-columns:1fr;gap:28px}
-  .cat-head{padding-bottom:28px;margin-bottom:28px}
-  .filters{position:static;border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-right:0;background:var(--surface);max-height:none;overflow:visible}
-  .grid{grid-template-columns:1fr 1fr}
+  .layout{grid-template-columns:1fr;gap:0}
+
+  /* pasek wyników przykleja się pod nagłówkiem — filtry zawsze pod ręką */
+  .bar{position:sticky;top:0;z-index:35;background:var(--base);
+    padding:12px 0;margin:0 -24px;padding-left:24px;padding-right:24px;
+    box-shadow:0 6px 14px -12px rgba(154,69,96,.5)}
+
+  .mfilter{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+    padding:11px 18px;min-height:44px;border:1px solid var(--ink);border-radius:999px;
+    background:var(--paper);color:var(--ink);font-size:15px;font-weight:600}
+  .mfilter:active{background:var(--surface)}
+
+  /* aside staje się panelem */
+  .filters{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    display:flex;flex-direction:column;
+    max-height:88dvh;margin:0;padding:0;border:0;border-radius:18px 18px 0 0;
+    background:var(--paper);
+    box-shadow:0 -10px 40px -12px rgba(42,31,36,.45);
+    transform:translateY(101%);
+    transition:transform .28s cubic-bezier(.32,.72,0,1);
+    visibility:hidden;
+    overflow:visible;max-width:none;
+  }
+  body.filters-open .filters{transform:translateY(0);visibility:visible}
+
+  .drawer-head{display:flex;align-items:center;gap:12px;flex:none;
+    padding:16px 20px 14px;border-bottom:1px solid var(--line)}
+  .drawer-head h2{font-family:var(--f-disp);font-weight:500;font-size:19px;letter-spacing:-.01em}
+  .drawer-grip{position:absolute;top:7px;left:50%;transform:translateX(-50%);
+    width:38px;height:4px;border-radius:999px;background:var(--line)}
+  .drawer-close{margin-left:auto;width:44px;height:44px;flex:none;cursor:pointer;
+    border:0;border-radius:50%;background:var(--surface);color:var(--ink);font-size:19px;line-height:1}
+
+  /* przewija się tylko ta część */
+  .filters-scroll{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;padding:4px 20px 8px}
+
+  .drawer-foot{display:flex;gap:10px;flex:none;
+    padding:12px 20px calc(12px + env(safe-area-inset-bottom));
+    border-top:1px solid var(--line);background:var(--paper)}
+  .drawer-foot button{min-height:50px;border-radius:999px;cursor:pointer;
+    font-size:15.5px;font-weight:600}
+  .d-clear{flex:0 0 38%;border:1px solid var(--line);background:transparent;color:var(--ink-soft)}
+  .d-clear:disabled{opacity:.4}
+  .d-apply{flex:1;border:0;background:var(--rose);color:#fff}
+  .d-apply:disabled{background:var(--ink-soft)}
+
+  .clear{display:none}                      /* przycisk desktopowy chowamy w panelu */
+  .fgroup:first-child{padding-top:14px}
+  .fopt{padding:11px 0}                     /* większe pole dotyku */
+  .fopt input{width:21px;height:21px}
+  .grid{grid-template-columns:1fr 1fr;gap:12px}
   .trust-grid{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
+
 @media (max-width:640px){
   body{font-size:16px}
   .hdr .wrap{flex-wrap:wrap;min-height:0;padding-top:12px;padding-bottom:12px;gap:12px}
   .search{order:3;flex-basis:100%;max-width:none}
   .util .wrap{gap:14px;font-size:12.5px}
-  .grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr;gap:10px}
+  .card{padding:11px}
+  .card h3{font-size:14.5px}
+  .card .price{font-size:16.5px}
+  .card .add{min-height:44px;font-size:13.5px}
   .trust-grid,.foot-grid{grid-template-columns:1fr}
-  .sort{margin-left:0;flex-basis:100%}
+  .sort{margin-left:auto}
+  .sort label{position:absolute;left:-9999px}
+  .sort select{min-height:44px}
+  .count{flex-basis:100%;order:3;font-size:15px}
+  .chips{padding-top:12px}
+  .chip{min-height:38px;padding:8px 10px 8px 16px}
 }
+
+@media (max-width:380px){
+  .grid{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .filters{transition:none}
+}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
 </style>
 </head>
 <body>
 
 <a class="skip" href="#main">Przejdź do treści</a>
+<div class="scrim" id="scrim" hidden></div>
 
 <div class="util">
   <div class="wrap">
@@ -282,7 +365,13 @@ body.show-before #before{display:block}
   <div class="wrap">
     <div class="layout">
 
-      <aside class="filters" aria-label="Filtry">
+      <aside class="filters" id="filters" aria-label="Filtry">
+        <div class="drawer-head">
+          <span class="drawer-grip" aria-hidden="true"></span>
+          <h2 id="drawerTitle">Filtry</h2>
+          <button type="button" class="drawer-close" id="drawerClose" aria-label="Zamknij filtry">✕</button>
+        </div>
+        <div class="filters-scroll">
         <div class="fgroup">
           <h2>Problem skóry</h2>
           <label class="fopt"><input type="checkbox" data-f="problem" value="tradzik"><span>Trądzik i niedoskonałości <span class="cnt" data-cnt="problem:tradzik"></span></span></label>
@@ -313,10 +402,18 @@ body.show-before #before{display:block}
         </div>
 
         <button class="clear" type="button" id="clear">Wyczyść filtry</button>
+        </div>
+        <div class="drawer-foot">
+          <button type="button" class="d-clear" id="drawerClear">Wyczyść</button>
+          <button type="button" class="d-apply" id="drawerApply">Pokaż wyniki</button>
+        </div>
       </aside>
 
       <section aria-label="Lista produktów">
         <div class="bar">
+          <button type="button" class="mfilter" id="openFilters" aria-expanded="false" aria-controls="filters">
+            Filtry<span class="fbadge" id="fbadge" hidden>0</span>
+          </button>
           <span class="count" id="count"></span>
           <div class="sort">
             <label for="sort">Sortuj</label>
@@ -473,6 +570,12 @@ function match(x,f){
   if(f.linia.length && f.linia.indexOf(x.l)<0) return false;
   return true;
 }
+/* ── odmiana liczebnika ── */
+function plProd(n){
+  if(n===1) return 'produkt';
+  var d=n%10, s=n%100;
+  return (d>=2&&d<=4&&(s<12||s>14))?'produkty':'produktów';
+}
 function render(){
   var f=active(), out=P.filter(function(x){return match(x,f)});
   var s=document.getElementById('sort').value;
@@ -480,9 +583,20 @@ function render(){
   if(s==='price-desc') out.sort(function(a,b){return b.p-a.p});
   if(s==='name') out.sort(function(a,b){return a.n.localeCompare(b.n,'pl')});
 
-  document.getElementById('count').innerHTML='<strong>'+out.length+'</strong> '+
-    (out.length===1?'produkt':(out.length%10>=2&&out.length%10<=4&&(out.length<12||out.length>14)?'produkty':'produktów'))+
+  document.getElementById('count').innerHTML='<strong>'+out.length+'</strong> '+plProd(out.length)+
     (out.length<P.length?' <em>z '+P.length+'</em>':'');
+
+  /* panel mobilny: żywy licznik na przycisku akcji + licznik aktywnych filtrów */
+  var nActive=0; Object.keys(f).forEach(function(k){nActive+=f[k].length});
+  var badge=document.getElementById('fbadge');
+  if(badge){ badge.hidden = nActive===0; badge.textContent=nActive; }
+  var ap=document.getElementById('drawerApply');
+  if(ap){
+    ap.textContent = out.length===0 ? 'Brak wyników' : 'Pokaż '+out.length+' '+plProd(out.length);
+    ap.disabled = out.length===0;
+  }
+  var dc=document.getElementById('drawerClear');
+  if(dc){ dc.disabled = nActive===0; }
 
   var ch=document.getElementById('chips'); ch.innerHTML='';
   Object.keys(f).forEach(function(k){ f[k].forEach(function(v){
@@ -550,6 +664,106 @@ render();
   b.addEventListener('click',function(){set(true)});
   a.addEventListener('click',function(){set(false)});
 })();
+
+/* ══════════════════════════════════════════════════════════
+   Panel filtrów (mobile)
+   ══════════════════════════════════════════════════════════ */
+(function(){
+  var body=document.body,
+      panel=document.getElementById('filters'),
+      scrim=document.getElementById('scrim'),
+      openBtn=document.getElementById('openFilters'),
+      closeBtn=document.getElementById('drawerClose'),
+      applyBtn=document.getElementById('drawerApply'),
+      clearBtn=document.getElementById('drawerClear'),
+      scrollBox=panel?panel.querySelector('.filters-scroll'):null,
+      lastY=0, isOpen=false;
+
+  if(!panel||!openBtn) return;
+
+  function focusables(){
+    return panel.querySelectorAll('button:not([disabled]), input:not([disabled])');
+  }
+
+  function open(){
+    if(isOpen) return;
+    isOpen=true;
+    lastY=window.scrollY;
+    scrim.hidden=false;
+    /* rola modalu tylko wtedy, gdy panel realnie się wysuwa (mobile) */
+    panel.setAttribute('role','dialog');
+    panel.setAttribute('aria-modal','true');
+    panel.setAttribute('aria-labelledby','drawerTitle');
+    body.classList.add('filters-open');
+    /* blokada scrolla tła bez skoku treści */
+    body.style.position='fixed';
+    body.style.top=(-lastY)+'px';
+    body.style.width='100%';
+    openBtn.setAttribute('aria-expanded','true');
+    setTimeout(function(){ if(closeBtn) closeBtn.focus(); },60);
+    document.addEventListener('keydown',onKey);
+  }
+
+  function close(){
+    if(!isOpen) return;
+    isOpen=false;
+    body.classList.remove('filters-open');
+    panel.removeAttribute('role');
+    panel.removeAttribute('aria-modal');
+    panel.removeAttribute('aria-labelledby');
+    body.style.position=''; body.style.top=''; body.style.width='';
+    window.scrollTo(0,lastY);
+    openBtn.setAttribute('aria-expanded','false');
+    openBtn.focus();
+    document.removeEventListener('keydown',onKey);
+    setTimeout(function(){ if(!isOpen) scrim.hidden=true; },280);
+  }
+
+  function onKey(e){
+    if(e.key==='Escape'){ e.preventDefault(); close(); return; }
+    if(e.key!=='Tab') return;
+    var f=focusables(); if(!f.length) return;
+    var first=f[0], last=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+
+  openBtn.addEventListener('click',open);
+  closeBtn.addEventListener('click',close);
+  scrim.addEventListener('click',close);
+  applyBtn.addEventListener('click',close);
+  clearBtn.addEventListener('click',function(){
+    document.querySelectorAll('[data-f]:checked').forEach(function(c){c.checked=false});
+    render();
+    if(scrollBox) scrollBox.scrollTop=0;
+  });
+
+  /* gest: pociągnięcie panelu w dół zamyka — naturalne na mobile */
+  var startY=null;
+  panel.addEventListener('touchstart',function(e){
+    if(scrollBox && scrollBox.scrollTop>0) { startY=null; return; }
+    startY=e.touches[0].clientY;
+  },{passive:true});
+  panel.addEventListener('touchmove',function(e){
+    if(startY===null) return;
+    var dy=e.touches[0].clientY-startY;
+    if(dy>0) panel.style.transform='translateY('+dy+'px)';
+  },{passive:true});
+  panel.addEventListener('touchend',function(e){
+    if(startY===null) return;
+    var dy=e.changedTouches[0].clientY-startY;
+    panel.style.transform='';
+    if(dy>90) close();
+    startY=null;
+  });
+
+  /* przy powrocie na desktop panel nie może zostać "otwarty" */
+  var mq=window.matchMedia('(min-width:981px)');
+  (mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(function(e){
+    if((e.matches!==undefined?e.matches:mq.matches) && isOpen) close();
+  });
+})();
+
 </script>
 
 </body>

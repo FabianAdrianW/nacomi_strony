@@ -7,7 +7,7 @@
 <meta name="description" content="Lekki krem do cery trądzikowej z niacynamidem, bisabololem i kwasem glicyretynowym. Redukuje niedoskonałości i normalizuje sebum. 42 zł, wysyłka 1–2 dni.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#2A1F24; --ink-soft:#6B5560; --base:#F4EAED;   /* poziom 0 — dno strony */
@@ -200,6 +200,51 @@ body.show-before #before{display:block}
 .issues h2{font-family:var(--f-disp);font-weight:300;font-size:30px;letter-spacing:-.02em}
 
 
+/* ══════════════════════════════════════════════════════════
+   OPINIE
+   Ocena stoi tuż pod nazwą, bo tam pada wzrok zaraz po
+   tytule i cenie — to sygnał "inni to kupili", zanim
+   klient zacznie czytać. Pełne recenzje niżej, dla tych,
+   którzy potrzebują potwierdzenia od kogoś podobnego.
+   ══════════════════════════════════════════════════════════ */
+.rating{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 2px}
+.stars{display:inline-flex;gap:2px;line-height:1}
+.stars svg{width:17px;height:17px;flex:none}
+.stars .s-full{fill:var(--rose)}
+.stars .s-empty{fill:var(--line)}
+.rating .val{font-weight:600;font-size:16px}
+.rating .cnt{font-size:14.5px;color:var(--ink-soft)}
+.rating a.cnt{text-decoration:underline;text-underline-offset:3px}
+.rating a.cnt:hover{color:var(--rose)}
+
+.rev-top{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;
+  padding:22px 24px;background:var(--paper);border-radius:var(--r);box-shadow:var(--lift-1);margin-bottom:22px}
+.rev-score{text-align:center;flex:none}
+.rev-score .big{font-family:var(--f-disp);font-weight:300;font-size:46px;line-height:1;letter-spacing:-.03em}
+.rev-score .of{font-size:13px;color:var(--ink-soft);margin-top:4px}
+.rev-bars{display:grid;gap:6px;min-width:0}
+.rev-row{display:grid;grid-template-columns:52px 1fr 34px;align-items:center;gap:12px;font-size:13.5px;color:var(--ink-soft)}
+.rev-track{height:7px;border-radius:999px;background:var(--surface);overflow:hidden}
+.rev-fill{height:100%;background:var(--rose);border-radius:999px}
+.rev-row .n{text-align:right}
+
+.rev-sort{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--ink-soft);margin-bottom:16px}
+.rev-sort select{padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:14.5px;cursor:pointer;min-height:44px}
+
+.rev-list{display:grid;gap:12px}
+.rev{background:var(--paper);border-radius:var(--r);padding:18px 20px;box-shadow:var(--lift-1)}
+.rev-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.rev-meta .who{font-weight:600;font-size:15px}
+.rev-ver{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
+  color:var(--sage);background:rgba(56,121,107,.1);padding:3px 9px;border-radius:999px}
+.rev-date{margin-left:auto;font-size:13px;color:var(--ink-soft)}
+.rev p{font-size:15.5px;line-height:1.55}
+.rev .skin{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--ink-soft);
+  border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+.rev-more{margin-top:18px;width:100%;min-height:50px;border:1px solid var(--ink);border-radius:999px;
+  background:transparent;color:var(--ink);font-size:15px;font-weight:600;cursor:pointer}
+.rev-more:hover{background:var(--ink);color:var(--paper)}
+
 /* ── GŁĘBIA ──────────────────────────────────────────────────
    Cień dostaje tylko to, co dałoby się podnieść: karty, panele,
    obiekty. Nie sekcje, nie pasma tła. Cień jest różowy, nie szary —
@@ -213,24 +258,111 @@ body.show-before #before{display:block}
 .card:hover,.scent-card:hover,.choice:hover,.diag-card:hover{box-shadow:var(--lift-2)}
 .card.lead{box-shadow:var(--lift-2)}
 
+/* ══════════════════════════════════════════════════════════
+   MOBILE
+   Zasady: jedna kolumna, decyzja zakupowa zawsze w zasięgu
+   kciuka, pola dotyku min. 44px, żadnego poziomego scrolla.
+   Galeria przesuwana palcem, bo tak ludzie oglądają zdjęcia
+   na telefonie.
+   ══════════════════════════════════════════════════════════ */
 @media (max-width:980px){
-  .top{grid-template-columns:1fr;gap:32px;padding-bottom:36px}
+  .top{grid-template-columns:1fr;gap:28px;padding-bottom:32px}
   .gal{position:static}
   .acts{grid-template-columns:1fr}
   .two{grid-template-columns:1fr;gap:32px}
   .rel{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
+  .rev-top{grid-template-columns:1fr;gap:20px;text-align:center}
+  .rev-bars{text-align:left}
 }
+
 @media (max-width:640px){
-  body{font-size:16px;padding-bottom:74px}
-  .hdr .wrap{flex-wrap:wrap;min-height:0;padding-top:12px;padding-bottom:12px;gap:12px}
+  body{font-size:16px;padding-bottom:78px}     /* miejsce na pasek zakupu */
+  .wrap{padding:0 18px}
+
+  /* nagłówek: szukajka na własnym wierszu, akcje ikonami */
+  .hdr .wrap{flex-wrap:wrap;min-height:0;padding-top:12px;padding-bottom:12px;gap:10px}
   .search{order:3;flex-basis:100%;max-width:none}
-  .util .wrap{gap:14px;font-size:12.5px}
-  .rel,.foot-grid{grid-template-columns:1fr}
-  .sticky-buy{display:flex}
+  .search input{min-height:46px}
+  .hdr-acts a{padding:10px 12px;font-size:14px;min-height:44px;display:flex;align-items:center}
+  .util .wrap{gap:12px;font-size:12px;padding:8px 18px}
+  .switch{margin-left:0}
+  .switch-track button{min-height:40px;padding:8px 16px}
+
+  /* nawigacja kategorii — poziomy suwak zamiast zawijania w 3 linie */
+  .nav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    padding:8px 18px;margin:0 -18px;scroll-snap-type:x proximity}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav li{flex:none;scroll-snap-align:start}
+  .nav a{min-height:42px;display:flex;align-items:center}
+
+  .crumbs{font-size:12.5px;white-space:nowrap;overflow-x:auto;scrollbar-width:none;
+    padding-top:14px;margin:0 -18px;padding-left:18px;padding-right:18px}
+  .crumbs::-webkit-scrollbar{display:none}
+
+  /* galeria: przesuwanie palcem + kropki */
+  .gal-main{margin:0 -18px;border-radius:0}
+  .gal-main img{width:100%}
+  .thumbs{gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .thumbs::-webkit-scrollbar{display:none}
+  .thumb{flex:none;width:62px;height:62px;min-height:44px}
+
+  /* blok zakupu */
+  .buy h1{font-size:27px;line-height:1.12}
+  .lede{font-size:15.5px}
+  .claims{gap:7px}
+  .claim{font-size:13px;padding:6px 12px}
+  .pricebox{padding:16px}
+  .price{font-size:30px}
+  .actions{flex-wrap:wrap;gap:10px}
+  .qty{flex:0 0 auto;min-height:50px}
+  .qty button{width:46px;min-height:46px}
+  .addcart{flex:1 1 auto;min-height:52px;font-size:16px}
+  .fav{width:52px;height:52px;flex:none}
+  .ship{font-size:14px}
+  .ship div{padding:9px 0}
+
+  /* sekcje treści */
+  .sec{padding:36px 0}
+  .sec h2{font-size:24px}
+  .intro{font-size:15.5px}
+  .acts,.rel{grid-template-columns:1fr}
+  .act{padding:16px}
+  .foot-grid{grid-template-columns:1fr}
+
+  /* opinie */
+  .rev-score .big{font-size:40px}
+  .rev-row{grid-template-columns:46px 1fr 28px;gap:9px;font-size:13px}
+  .rev{padding:16px}
+  .rev p{font-size:15px}
+  .rev-meta{gap:8px}
+  .rev-date{flex-basis:100%;margin-left:0;order:9}
+  .rev-sort{flex-wrap:wrap}
+  .rev-sort select{flex:1}
+
+  /* pasek zakupu przyklejony na dole — decyzja zawsze pod kciukiem */
+  .sticky-buy{
+    display:flex;
+    padding:10px 18px calc(10px + env(safe-area-inset-bottom));
+    align-items:center;gap:12px;
+  }
+  .sticky-buy .p{font-size:19px;font-weight:600}
+  .sticky-buy button{min-height:50px;font-size:16px}
   body.show-before .sticky-buy{display:none}
 }
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+
+@media (max-width:380px){
+  .wrap{padding:0 14px}
+  .buy h1{font-size:24px}
+  .price{font-size:27px}
+  .sticky-buy .p{font-size:17px}
+}
+
+/* urządzenia dotykowe: hover nie istnieje, nie chowaj nic za hoverem */
+@media (hover:none){
+  .card:hover,.act:hover{transform:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -296,6 +428,12 @@ body.show-before #before{display:block}
         <span class="line-tag">Next Lvl Dermo</span>
         <h1>Lekki krem do cery trądzikowej</h1>
         <span class="vol">50 ml · krem na dzień i na noc</span>
+
+        <div class="rating">
+          <span class="stars" role="img" aria-label="Ocena 4,7 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><defs><linearGradient id="hg1"><stop offset="80%" stop-color="#9A4560"/><stop offset="80%" stop-color="#E7D3DA"/></linearGradient></defs><polygon fill="url(#hg1)" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <span class="val">4,7</span>
+          <a class="cnt" href="#opinie">38 opinii</a>
+        </div>
 
         <p class="lede">Aktywny krem o lekkiej konsystencji. Odblokowuje pory, zmniejsza widoczność zaskórników i przebarwień potrądzikowych oraz zapobiega ich ponownemu powstawaniu.</p>
 
@@ -402,6 +540,87 @@ body.show-before #before{display:block}
           </div>
         </details>
       </div>
+    </div>
+  </section>
+
+
+  <section class="sec" id="opinie">
+    <div class="wrap">
+      <span class="eyebrow">Co mówią kupujący</span>
+      <h2>38 opinii o tym kremie</h2>
+      <p class="intro">Opinie zbierane od klientów, którzy kupili produkt w naszym sklepie. Publikujemy wszystkie, także krytyczne.</p>
+
+      <div class="rev-top">
+        <div class="rev-score">
+          <div class="big">4,7</div>
+          <span class="stars" role="img" aria-label="Średnia ocena 4,7 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><defs><linearGradient id="hg2"><stop offset="80%" stop-color="#9A4560"/><stop offset="80%" stop-color="#E7D3DA"/></linearGradient></defs><polygon fill="url(#hg2)" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <div class="of">na podstawie 38 opinii</div>
+        </div>
+        <div class="rev-bars">
+          <div class="rev-row"><span>5 gwiazd</span><span class="rev-track"><span class="rev-fill" style="width:74%"></span></span><span class="n">28</span></div>
+          <div class="rev-row"><span>4 gwiazdki</span><span class="rev-track"><span class="rev-fill" style="width:18%"></span></span><span class="n">7</span></div>
+          <div class="rev-row"><span>3 gwiazdki</span><span class="rev-track"><span class="rev-fill" style="width:5%"></span></span><span class="n">2</span></div>
+          <div class="rev-row"><span>2 gwiazdki</span><span class="rev-track"><span class="rev-fill" style="width:3%"></span></span><span class="n">1</span></div>
+          <div class="rev-row"><span>1 gwiazdka</span><span class="rev-track"><span class="rev-fill" style="width:0%"></span></span><span class="n">0</span></div>
+        </div>
+      </div>
+
+      <div class="rev-sort">
+        <label for="rev-sort">Pokaż najpierw</label>
+        <select id="rev-sort">
+          <option value="helpful">Najbardziej pomocne</option>
+          <option value="new">Najnowsze</option>
+          <option value="low">Najniższe oceny</option>
+        </select>
+      </div>
+
+      <div class="rev-list">
+        <article class="rev">
+          <div class="rev-meta">
+            <span class="who">Marta K.</span>
+            <span class="rev-ver">✓ zakup potwierdzony</span>
+            <span class="rev-date">12.02.2026</span>
+          </div>
+          <span class="stars" role="img" aria-label="5 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>Używam od dwóch miesięcy i skóra faktycznie się uspokoiła. Nie wysusza, nie piecze, wchłania się od razu — mogę nakładać makijaż bez czekania. Zaskórniki na brodzie wyraźnie mniejsze.</p>
+          <span class="skin">cera trądzikowa, tłusta</span>
+        </article>
+
+        <article class="rev">
+          <div class="rev-meta">
+            <span class="who">Aleksandra W.</span>
+            <span class="rev-ver">✓ zakup potwierdzony</span>
+            <span class="rev-date">28.01.2026</span>
+          </div>
+          <span class="stars" role="img" aria-label="5 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>Szukałam czegoś lekkiego pod filtr i to jest strzał w dziesiątkę. Konsystencja wodnista, zero lepienia się. Po tygodniu mniej zaczerwienień wokół nosa.</p>
+          <span class="skin">cera mieszana, wrażliwa</span>
+        </article>
+
+        <article class="rev">
+          <div class="rev-meta">
+            <span class="who">Joanna P.</span>
+            <span class="rev-ver">✓ zakup potwierdzony</span>
+            <span class="rev-date">15.01.2026</span>
+          </div>
+          <span class="stars" role="img" aria-label="4 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>Dobry krem, skóra spokojniejsza. Minus za opakowanie — słoiczek zamiast pompki, przy takiej formule wolałabym higieniczniejsze rozwiązanie.</p>
+          <span class="skin">cera trądzikowa</span>
+        </article>
+
+        <article class="rev">
+          <div class="rev-meta">
+            <span class="who">Karolina M.</span>
+            <span class="rev-ver">✓ zakup potwierdzony</span>
+            <span class="rev-date">03.01.2026</span>
+          </div>
+          <span class="stars" role="img" aria-label="3 na 5"><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-full" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><polygon class="s-empty" points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,15 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg></span>
+          <p>U mnie bez rewolucji. Nie podrażnia, nawilża przyzwoicie, ale po sześciu tygodniach nie widzę różnicy w niedoskonałościach. Może potrzebuję mocniejszego działania.</p>
+          <span class="skin">cera tłusta</span>
+        </article>
+      </div>
+
+      <button class="rev-more" type="button">Pokaż kolejne 34 opinie</button>
     </div>
   </section>
 
@@ -547,6 +766,64 @@ body.show-before #before{display:block}
   function set(s){document.body.classList.toggle('show-before',s);b.setAttribute('aria-pressed',String(s));a.setAttribute('aria-pressed',String(!s));window.scrollTo(0,0)}
   b.onclick=function(){set(true)};a.onclick=function(){set(false)};
 })();
+
+/* ── galeria: przesuwanie palcem ── */
+(function(){
+  var img=document.getElementById('gal-img');
+  var thumbs=[].slice.call(document.querySelectorAll('.thumb'));
+  if(!img||thumbs.length<2) return;
+  var i=0, x0=null;
+  function show(n){
+    i=(n+thumbs.length)%thumbs.length;
+    img.src=thumbs[i].dataset.src;
+    thumbs.forEach(function(t,k){ t.setAttribute('aria-current', k===i?'true':'false'); });
+  }
+  var main=document.querySelector('.gal-main');
+  main.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  main.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>45) show(dx<0?i+1:i-1);
+    x0=null;
+  });
+  thumbs.forEach(function(t,k){ t.addEventListener('click',function(){show(k);}); });
+})();
+
+/* ── link "38 opinii" przewija do sekcji ── */
+(function(){
+  var a=document.querySelector('.rating a.cnt');
+  if(!a) return;
+  a.addEventListener('click',function(e){
+    var t=document.getElementById('opinie');
+    if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    t.setAttribute('tabindex','-1'); t.focus({preventScroll:true});
+  });
+})();
+
+/* ── sortowanie opinii ── */
+(function(){
+  var sel=document.getElementById('rev-sort');
+  var list=document.querySelector('.rev-list');
+  if(!sel||!list) return;
+  var items=[].slice.call(list.children);
+  function score(el){
+    var lab=el.querySelector('.stars').getAttribute('aria-label')||'';
+    var m=lab.match(/(\d)/); return m?+m[1]:0;
+  }
+  function date(el){
+    var d=(el.querySelector('.rev-date')||{}).textContent||'';
+    var p=d.split('.'); return p.length===3 ? +(p[2]+p[1]+p[0]) : 0;
+  }
+  sel.addEventListener('change',function(){
+    var v=sel.value, out=items.slice();
+    if(v==='new') out.sort(function(a,b){return date(b)-date(a)});
+    if(v==='low') out.sort(function(a,b){return score(a)-score(b)});
+    out.forEach(function(el){list.appendChild(el)});
+  });
+})();
+
 </script>
 
 </body>
