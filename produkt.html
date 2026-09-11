@@ -249,6 +249,36 @@ body.show-before #before{display:block}
 .b-add:hover{background:var(--rose)}
 
 /* ══════════════════════════════════════════════════════════
+   NA KONIEC — inni kupili też
+   Efekt świeżości: to, co klient widzi na dole strony, zostaje
+   w pamięci krótkotrwałej najmocniej. Zamiast kończyć stronę
+   ślepym zaułkiem, dajemy naturalne wyjście do dalszego
+   przeglądania. Kluczowa różnica wobec oryginału: te produkty
+   stoją PO decyzji, nie w jej środku.
+   ══════════════════════════════════════════════════════════ */
+.also{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.al{display:flex;flex-direction:column;background:var(--paper);border-radius:var(--r);
+  box-shadow:var(--lift-1);overflow:hidden;min-width:0;
+  transition:transform .2s ease,box-shadow .2s ease}
+.al:hover{transform:translateY(-4px);box-shadow:var(--lift-2)}
+.al-img{aspect-ratio:1/1;background:var(--surface);display:flex;align-items:center;justify-content:center;padding:14px}
+.al-img img{width:100%;height:100%;object-fit:contain;display:block}
+.al-body{display:flex;flex-direction:column;gap:6px;padding:14px 15px 16px;flex:1}
+.al-tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.al h3{font-size:14.5px;font-weight:600;line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.al h3 a{color:inherit;text-decoration:none}
+.al h3 a:hover{color:var(--rose)}
+.al .al-price{font-size:15.5px;font-weight:600;margin-top:auto;padding-top:8px}
+.al-add{margin-top:10px;min-height:44px;border:1px solid var(--ink);border-radius:999px;
+  background:transparent;color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;
+  transition:background .2s ease,color .2s ease}
+.al-add:hover{background:var(--ink);color:var(--paper)}
+.also-more{display:inline-block;margin-top:22px;font-size:15px;font-weight:600;color:var(--ink);
+  text-decoration:underline;text-underline-offset:4px;min-height:44px;padding:10px 0}
+.also-more:hover{color:var(--rose)}
+
+/* ══════════════════════════════════════════════════════════
    OPINIE
    Ocena stoi tuż pod nazwą, bo tam pada wzrok zaraz po
    tytule i cenie — to sygnał "inni to kupili", zanim
@@ -332,6 +362,7 @@ h1,h2,h3,p,li,span,a{overflow-wrap:break-word}
   .gal{position:static}
   .acts{grid-template-columns:1fr}
   .two{grid-template-columns:1fr;gap:32px}
+  .also{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 
@@ -410,6 +441,20 @@ h1,h2,h3,p,li,span,a{overflow-wrap:break-word}
   .b-txt span{font-size:13.5px}
   .b-add{flex:1 1 100%;padding:0 18px}
 
+/* "zobacz także": suwak poziomy ze skrawkiem kolejnej karty —
+     krawędź sygnalizuje, że jest tego więcej, i zachęca do przeglądania */
+  .also{display:flex;grid-template-columns:none;gap:10px;
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;margin:22px -18px 0;padding:2px 18px 6px;scroll-padding-left:18px}
+  .also::-webkit-scrollbar{display:none}
+  .al{flex:0 0 62%;max-width:230px;scroll-snap-align:start}
+  .al-img{padding:10px}
+  .al-body{padding:12px 13px 14px;gap:5px}
+  .al h3{font-size:14px}
+  .al .al-price{font-size:15px}
+  .al-add{min-height:44px;font-size:13.5px}
+  .also-more{font-size:14.5px}
+
   /* opinie — slider wychodzi poza margines, skrawek kolejnej karty
      sygnalizuje "jest tego więcej, przesuń" */
   .rev-head{gap:10px;margin-bottom:14px}
@@ -439,6 +484,7 @@ h1,h2,h3,p,li,span,a{overflow-wrap:break-word}
   .act .a-name{flex:1 1 100%}
   .act .a-role{flex:1 1 auto;white-space:normal;text-overflow:clip}
   .routine{gap:8px}
+  .al{flex:0 0 72%}
   .s-thumb{width:60px;height:60px}
   .s-name{font-size:12px}
   .buy h1{font-size:24px}
@@ -755,6 +801,53 @@ h1,h2,h3,p,li,span,a{overflow-wrap:break-word}
     </div>
   </section>
 
+
+  <section class="sec" id="takze">
+    <div class="wrap">
+      <span class="eyebrow">Zobacz także</span>
+      <h2>inni z cerą trądzikową kupili też</h2>
+      <p class="intro">Produkty najczęściej wybierane razem z tym kremem — na koniec, żeby nie przerywać decyzji o zakupie.</p>
+      <div class="also">
+        <article class="al">
+          <div class="al-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2223_2000_2000/Serum-retinol-0%2C25-30ml-5902539716054.webp" alt="Nacomi Next Lvl — Serum retinol 0,25%"></div>
+          <div class="al-body">
+            <span class="al-tag">Najczęściej razem</span>
+            <h3><a href="https://nacomi-shop.pl/pl/p/Nacomi-Next-Lvl-Serum-retinol-0%2C25-30ml/906">Nacomi Next Lvl — Serum retinol 0,25%</a></h3>
+            <span class="al-price">31,00 zł</span>
+            <button class="al-add" type="button">Do koszyka</button>
+          </div>
+        </article>
+        <article class="al">
+          <div class="al-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_2747_2000_2000/Nacomi---Pasta-do-mycia-twarzy---Deep-Detox-100ml-front.jpg" alt="Pasta do mycia twarzy — Deep Detox"></div>
+          <div class="al-body">
+            <span class="al-tag">Na wieczór</span>
+            <h3><a href="https://nacomi-shop.pl/pl/p/Pasta-do-mycia-twarzy-Deep-Detox-100ml/1336">Pasta do mycia twarzy — Deep Detox</a></h3>
+            <span class="al-price">27,00 zł</span>
+            <button class="al-add" type="button">Do koszyka</button>
+          </div>
+        </article>
+        <article class="al">
+          <div class="al-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_1792_2000_2000/Nacomi-Next-Lvl---Eyeconic-total-cream-15ml_1.webp" alt="Krem pod oczy — Eye`conic total cream"></div>
+          <div class="al-body">
+            <span class="al-tag">Okolice oczu</span>
+            <h3><a href="https://nacomi-shop.pl/pl/p/Krem-pod-oczy-Eyeconic-total-cream-15ml/1290">Krem pod oczy — Eye`conic total cream</a></h3>
+            <span class="al-price">61,00 zł</span>
+            <button class="al-add" type="button">Do koszyka</button>
+          </div>
+        </article>
+        <article class="al">
+          <div class="al-img"><img loading="lazy" src="https://nacomi-shop.pl/environment/cache/images/productGfx_1695_2000_2000/Serum-do-twarzy---Granactive-Retinoid-Pro--2-30ml.webp" alt="Serum — Granactive Retinoid Pro+ 2%"></div>
+          <div class="al-body">
+            <span class="al-tag">Kolejny poziom</span>
+            <h3><a href="https://nacomi-shop.pl/pl/p/Serum-do-twarzy-Granactive-Retinoid-Pro-2-30ml/1305">Serum — Granactive Retinoid Pro+ 2%</a></h3>
+            <span class="al-price">41,00 zł</span>
+            <button class="al-add" type="button">Do koszyka</button>
+          </div>
+        </article>
+      </div>
+      <a class="also-more" href="https://nacomi-shop.pl/pl/c/Redukcja-niedoskonalosci/549">Zobacz wszystko na trądzik →</a>
+    </div>
+  </section>
 </main>
 
 <div class="sticky-buy">
