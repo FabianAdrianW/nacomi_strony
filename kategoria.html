@@ -193,6 +193,7 @@ body.show-before #before{display:block}
    więc "Pokaż wyniki" nigdy nie ucieka poza ekran.
    ══════════════════════════════════════════════════════════ */
 .mfilter{display:none}
+.fbadge[hidden]{display:none}
 .fbadge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;
   padding:0 6px;border-radius:999px;background:var(--rose);color:#fff;font-size:12px;font-weight:600;line-height:1}
 .scrim{position:fixed;inset:0;z-index:60;background:rgba(42,31,36,.45);
@@ -260,6 +261,14 @@ body.filters-open .scrim{opacity:1;visibility:visible}
 
 @media (max-width:640px){
   body{font-size:16px}
+  /* nawigacja: jeden poziomy pas zamiast trzech linii.
+     Zawijanie zjadało pół ekranu, zanim pokazał się pierwszy produkt. */
+  .nav ul{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;scroll-snap-type:x proximity;
+    margin:0 -24px;padding:6px 24px;gap:2px}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav li{flex:none;scroll-snap-align:start}
+  .nav a{white-space:nowrap;min-height:44px;display:flex;align-items:center;font-size:14.5px;padding:10px 14px}
   .hdr .wrap{flex-wrap:wrap;min-height:0;padding-top:12px;padding-bottom:12px;gap:12px}
   .search{order:3;flex-basis:100%;max-width:none}
   .util .wrap{gap:14px;font-size:12.5px}
