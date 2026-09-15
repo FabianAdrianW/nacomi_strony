@@ -5,7 +5,7 @@ Koncepcja UX/UI dwóch kluczowych podstron sklepu [nacomi.pl](https://nacomi.pl)
 **Przed / Po** — po lewej mapa problemów obecnej wersji, po prawej propozycja
 wraz z uzasadnieniem każdej decyzji.
 
-**Demo:** _(tu wklej link do GitHub Pages)_
+https://fabianadrianw.github.io/nacomi_strony/
 
 ---
 
